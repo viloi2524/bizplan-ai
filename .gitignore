@@ -1,0 +1,15 @@
+node_modules/
+client/dist/
+server/dist/
+.env
+.env.local
+.env.*
+!.env.example
+**/.env
+**/.env.local
+**/.env.*
+!**/.env.example
+server/.env
+client/.vercel/
+*.log
+*.tsbuildinfo

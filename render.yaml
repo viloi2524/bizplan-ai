@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: bizplan-ai-api
+    runtime: node
+    buildCommand: npm ci --workspace=server --omit=dev
+    startCommand: npm run start --workspace=server
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_URL
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-flash-latest

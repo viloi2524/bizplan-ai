@@ -1,0 +1,1407 @@
+{
+  "runSettings": {
+    "temperature": 1.0,
+    "model": "models/gemini-3.8-flash",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [{
+      "category": "HARM_CATEGORY_HARASSMENT",
+      "threshold": "OFF"
+    }, {
+      "category": "HARM_CATEGORY_HATE_SPEECH",
+      "threshold": "OFF"
+    }, {
+      "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+      "threshold": "OFF"
+    }, {
+      "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+      "threshold": "OFF"
+    }],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "thinkingBudget": -1,
+    "googleSearch": {
+    },
+    "thinkingLevel": "THINKING_MEDIUM",
+    "enableImageSearch": false,
+    "enableGoogleMaps": false,
+    "enableAgentThinkingSummariesControl": false,
+    "enableAgentVisualizationControl": false,
+    "enableAgentCollaborativePlanningControl": false,
+    "enableWordTimestamps": false,
+    "enableSpeakerDiarization": false,
+    "enablePolishedTranscript": false
+  },
+  "systemInstruction": {
+  },
+  "chunkedPrompt": {
+    "chunks": [{
+      "text": "# PROMPT PEMBUATAN APLIKASI — PRODUKLAKU AI\n\n## 1. Identitas dan Tujuan Aplikasi\n\nBertindaklah sebagai Senior Full-Stack Developer, AI Engineer, UI/UX Designer, Data Analyst, dan Product Manager.\n\nBuat aplikasi web berbasis Artificial Intelligence bernama **ProdukLaku AI** dengan desain profesional, modern, responsif, dan mudah digunakan oleh pemula.\n\n**Tagline:** \"Riset Lebih Cerdas, Jualan Lebih Untung.\"\n\nProdukLaku AI merupakan platform analisis produk untuk membantu calon pengusaha, reseller, dropshipper, dan penjual marketplace Indonesia menentukan produk yang layak dijual sebelum mengeluarkan modal.\n\nAplikasi harus dapat membantu pengguna:\n\n1. Menemukan ide produk yang potensial.\n2. Membandingkan harga jual dan harga supplier.\n3. Menghitung estimasi keuntungan bersih.\n4. Menilai risiko kerugian dan stok tidak terjual.\n5. Menganalisis pesaing berdasarkan data yang tersedia.\n6. Mensimulasikan kebutuhan modal.\n7. Mendapatkan rekomendasi berbasis AI yang dapat dijelaskan.\n8. Memantau perubahan hasil analisis produk dari waktu ke waktu.\n\nTarget pasar utama adalah Indonesia, khususnya penjual TikTok Shop, Shopee, Tokopedia, dan pelaku UMKM.\n\nGunakan Bahasa Indonesia sebagai bahasa utama dan Rupiah sebagai mata uang.\n\n## 2. Teknologi yang Digunakan\n\nGunakan teknologi berikut:\n\n- Frontend: React, TypeScript, Vite.\n- Styling: Tailwind CSS.\n- UI Components: shadcn/ui dan Lucide Icons.\n- Backend: Node.js dengan API yang aman.\n- Database: Supabase PostgreSQL.\n- Authentication: Supabase Auth.\n- AI: Gemini API melalui backend.\n- Charts: Recharts.\n- Deployment: Vercel atau layanan hosting yang mendukung backend.\n\nPrioritaskan layanan gratis untuk pengembangan awal.\n\nJangan menyimpan API key pada frontend atau mengungkapkannya kepada pengguna.\n\nJika integrasi AI atau database belum tersedia, sediakan demo mode menggunakan data contoh yang diberi label jelas.\n\n## 3. Dashboard Utama\n\nBuat dashboard dengan desain seperti aplikasi SaaS profesional.\n\nTampilkan informasi berikut:\n\n- Jumlah produk yang sedang dianalisis.\n- Jumlah produk dengan potensi margin tinggi.\n- Rata-rata estimasi margin keuntungan.\n- Total estimasi modal.\n- Produk dengan risiko tertinggi.\n- Riwayat analisis terbaru.\n- Grafik simulasi keuntungan.\n\nGunakan sidebar navigasi:\n\n1. Dashboard\n2. AI Product Research\n3. Analisis Kompetitor\n4. Analisis Supplier\n5. Kalkulator Keuntungan\n6. Simulasi Modal\n7. Produk Tersimpan\n8. Laporan AI\n9. Pengaturan\n\nPastikan setiap menu benar-benar berfungsi, bukan hanya tampilan statis.\n\n## 4. Fitur AI Product Research\n\nBuat halaman riset produk dengan input:\n\n- Nama atau kategori produk.\n- Marketplace tujuan.\n- Modal yang tersedia.\n- Target harga jual.\n- Target margin keuntungan.\n- Berat produk.\n- Tingkat risiko yang dapat diterima.\n\nAI harus membantu pengguna menghasilkan daftar kandidat produk untuk diteliti.\n\nUntuk setiap kandidat, tampilkan:\n\n- Nama produk.\n- Kategori.\n- Estimasi biaya pembelian.\n- Estimasi harga jual.\n- Potensi margin.\n- Tingkat risiko.\n- Alasan produk layak diuji.\n- Kekurangan dan tantangan.\n- Data tambahan yang masih dibutuhkan.\n\nPenting:\n\nJangan mengarang data penjualan marketplace, harga supplier, jumlah pesaing, atau tren permintaan.\n\nJika tidak tersedia data real-time yang sah, tampilkan status \"Data belum terverifikasi\" dan minta pengguna memasukkan data atau mengunggah dokumen.\n\nPisahkan rekomendasi AI, data faktual, dan asumsi simulasi.\n\n## 5. Fitur Analisis Kompetitor\n\nBuat fitur untuk membandingkan produk dengan kompetitor.\n\nPengguna dapat memasukkan data kompetitor secara manual atau mengunggah CSV.\n\nData meliputi:\n\n- Nama produk pesaing.\n- Harga jual.\n- Jumlah penjualan jika tersedia.\n- Rating dan ulasan jika tersedia.\n- Biaya pengiriman.\n- Keunggulan produk.\n- Kekurangan produk.\n- Tanggal pengambilan data.\n- Sumber data.\n\nTampilkan grafik perbandingan harga dan tabel kompetitor.\n\nAI harus menjelaskan peluang diferensiasi produk berdasarkan data yang benar-benar tersedia.\n\nJangan melakukan scraping marketplace tanpa izin atau mengklaim akses ke data yang tidak tersedia.\n\n## 6. Fitur Analisis Supplier\n\nBuat database supplier dengan informasi:\n\n- Nama supplier.\n- Nama produk.\n- Harga beli.\n- Minimum order quantity (MOQ).\n- Biaya pengiriman.\n- Estimasi waktu pengiriman.\n- Lokasi supplier.\n- Syarat pembayaran.\n- Catatan kualitas.\n- Tanggal pembaruan harga.\n\nAI membantu membandingkan total biaya pembelian, bukan hanya harga barang.\n\nTampilkan rekomendasi supplier termurah berdasarkan jumlah pembelian yang direncanakan.\n\nJika informasi supplier tidak lengkap, tampilkan peringatan dan jangan menyatakan supplier tertentu pasti paling baik.\n\n## 7. Kalkulator Keuntungan Otomatis\n\nBuat kalkulator keuntungan dengan input:\n\n- Harga beli per unit.\n- Harga jual per unit.\n- Biaya admin marketplace.\n- Biaya layanan dan pembayaran.\n- Biaya kemasan.\n- Subsidi ongkir yang ditanggung penjual.\n- Biaya iklan per pesanan.\n- Biaya operasional per unit.\n- Estimasi biaya retur dan kerusakan.\n- Pajak jika relevan.\n- Jumlah unit yang terjual.\n\nRumus utama:\n\nTotal Biaya per Unit \u003d Harga Beli + Seluruh Biaya Variabel per Unit\n\nLaba Bersih Estimasi per Unit \u003d Harga Jual - Total Biaya per Unit\n\nMargin Bersih \u003d (Laba Bersih Estimasi per Unit / Harga Jual) × 100%\n\nROI \u003d (Laba Bersih Estimasi / Modal yang Digunakan) × 100%\n\nBedakan biaya tetap, biaya variabel, dan biaya satu kali.\n\nTampilkan break-even point jika informasi yang diperlukan tersedia.\n\nSemua perhitungan harus dilakukan menggunakan fungsi deterministik, bukan meminta AI mengarang angka.\n\n## 8. Sistem AI Product Score\n\nBuat sistem penilaian produk dengan skor 0–100.\n\nKomponen skor awal:\n\n- Margin keuntungan: 30%.\n- Risiko stok: 25%.\n- Tingkat persaingan: 20%.\n- Kebutuhan modal: 15%.\n- Keandalan supplier: 10%.\n\nBobot harus dapat dikonfigurasi.\n\nJika data tidak mencukupi, tampilkan status \"Skor belum dapat dihitung\" atau skor parsial beserta cakupan datanya.\n\nJangan menganggap skor ini sebagai probabilitas keberhasilan bisnis.\n\nTampilkan penjelasan faktor yang meningkatkan dan menurunkan skor.\n\n## 9. Simulasi Modal dan Risiko\n\nBuat fitur simulasi dengan tiga skenario:\n\n**Optimistis:** penjualan lebih tinggi dari asumsi dasar.\n\n**Normal:** penjualan sesuai asumsi dasar.\n\n**Pesimistis:** penjualan lebih rendah dan biaya lebih tinggi.\n\nPengguna dapat mengubah:\n\n- Modal awal.\n- Jumlah stok.\n- Harga beli.\n- Harga jual.\n- Jumlah produk terjual.\n- Persentase retur.\n- Biaya iklan.\n- Biaya operasional.\n\nTampilkan:\n\n- Proyeksi omzet.\n- Proyeksi laba atau rugi.\n- Arus kas sederhana.\n- Stok tersisa.\n- Modal tertahan dalam stok.\n- Titik impas.\n- Sensitivitas laba terhadap perubahan harga dan biaya.\n\nSemua grafik harus berubah otomatis ketika input diubah.\n\n## 10. Asisten Chatbot ProdukLaku AI\n\nBuat chatbot terintegrasi di dalam aplikasi.\n\nChatbot harus mampu:\n\n- Menjelaskan hasil analisis produk.\n- Membantu menghitung margin.\n- Membandingkan skenario bisnis.\n- Menjelaskan risiko usaha.\n- Membantu menyusun strategi uji pasar.\n- Menjawab pertanyaan berdasarkan data produk yang disimpan pengguna.\n\nContoh pertanyaan:\n\n\"Apakah modal Rp1 juta cukup untuk menjual lampu LED?\"\n\n\"Berapa harga jual yang diperlukan agar margin bersih 20%?\"\n\n\"Produk mana yang memiliki risiko stok paling rendah?\"\n\n\"Bagaimana jika biaya iklan naik 15%?\"\n\nChatbot harus membedakan hasil perhitungan, asumsi, dan informasi yang belum diketahui.\n\n## 11. UI/UX dan Tampilan Visual\n\nGunakan desain SaaS modern, minimalis, dan profesional.\n\nTema utama:\n\n- Navy: #0F172A\n- Biru: #2563EB\n- Hijau: #16A34A\n- Merah: #DC2626\n- Background terang: #F8FAFC\n- Abu-abu: #64748B\n\nGunakan:\n\n- Sidebar yang dapat diperkecil.\n- Dashboard cards yang rapi.\n- Grafik interaktif.\n- Tabel dengan sorting dan filtering.\n- Search bar.\n- Loading skeleton.\n- Empty states.\n- Notifikasi error dan sukses.\n- Dark mode dan light mode.\n- Tampilan responsif untuk desktop dan mobile.\n\nHindari desain terlalu ramai, warna mencolok berlebihan, dan animasi yang mengganggu.\n\n## 12. Sistem Akun dan Penyimpanan Data\n\nBuat autentikasi pengguna menggunakan Supabase Auth.\n\nSetiap pengguna hanya boleh mengakses data miliknya sendiri.\n\nAktifkan Row Level Security (RLS).\n\nData yang disimpan meliputi:\n\n- Profil pengguna.\n- Produk.\n- Supplier.\n- Kompetitor.\n- Asumsi biaya.\n- Hasil analisis.\n- Riwayat simulasi.\n- Riwayat chatbot.\n\nTambahkan fitur edit, hapus, pencarian, filter, dan ekspor CSV.\n\nSeluruh fitur harus bekerja dan memiliki validasi input.\n\n## 13. Keamanan dan Akurasi\n\nTerapkan:\n\n- Penyimpanan API key di environment variables.\n- Validasi input pada frontend dan backend.\n- Rate limiting untuk API AI.\n- Pembatasan ukuran file unggahan.\n- Validasi jenis file.\n- Error handling.\n- Proteksi akses data antar pengguna.\n- Penghapusan data sesuai permintaan pengguna.\n- Penanda waktu dan sumber untuk data eksternal.\n\nJangan menampilkan rekomendasi sebagai jaminan keuntungan.\n\nJangan membuat data marketplace fiktif seolah-olah data nyata.\n\n## 14. Tahapan Pembangunan\n\nKerjakan aplikasi secara bertahap.\n\n**Tahap 1 — MVP:**\n- Dashboard.\n- Input produk manual.\n- Database produk.\n- Kalkulator keuntungan.\n- Simulasi modal.\n- Product Score berdasarkan data tersedia.\n- AI chatbot dasar.\n\n**Tahap 2 — Pengembangan:**\n- Analisis supplier.\n- Analisis kompetitor.\n- Unggah CSV.\n- Laporan AI.\n- Grafik lebih lengkap.\n\n**Tahap 3 — Skalabilitas:**\n- Integrasi sumber data yang legal.\n- Paket langganan.\n- Manajemen kuota AI.\n- Analisis historis.\n- Sistem notifikasi perubahan data.\n\nJangan memulai Tahap 2 sebelum fitur Tahap 1 berjalan dan diuji.\n\n## 15. Instruksi Implementasi\n\nMulai dengan membuat struktur proyek dan implementasi MVP yang dapat dijalankan.\n\nBerikan:\n\n1. Struktur folder lengkap.\n2. Source code frontend dan backend.\n3. Skema database SQL.\n4. Environment variables yang dibutuhkan.\n5. Instruksi instalasi dependency.\n6. Cara menjalankan aplikasi secara lokal.\n7. Data demo yang jelas diberi label.\n8. Pengujian fungsi kalkulasi dan fitur CRUD.\n9. Penjelasan cara menghubungkan Gemini API dan Supabase.\n10. Daftar keterbatasan serta pekerjaan yang belum selesai.\n\nJangan membuat tombol palsu, grafik statis yang mengaku real-time, atau fitur yang hanya berupa mockup tanpa penjelasan.\n\nPastikan aplikasi dapat berjalan terlebih dahulu dengan data demo sebelum membutuhkan integrasi eksternal.\n\n**Tujuan akhir:** menghasilkan ProdukLaku AI versi MVP yang benar-benar berfungsi, mudah digunakan oleh penjual Indonesia, dan dapat dikembangkan menjadi bisnis SaaS berbayar.",
+      "role": "user",
+      "tokenCount": 2685,
+      "createTime": "2026-10-25T13:05:31.346Z"
+    }, {
+      "text": "**Defining the MVP Architecture**\n\nI\u0027m now focusing on defining the MVP architecture for **ProdukLaku AI**, aiming for a fully functional blueprint. I\u0027m prioritizing essential features for Indonesian marketplace sellers, specifically targeting Shopee integration. The goal is to create a complete and production-ready architecture, along with the foundational code blueprint. This initial design will be the critical step toward a viable MVP.\n\n\n",
+      "role": "model",
+      "tokenCount": 256,
+      "isThought": true,
+      "parts": [{
+        "text": "**Defining the MVP Architecture**\n\nI\u0027m now focusing on defining the MVP architecture for **ProdukLaku AI**, aiming for a fully functional blueprint. I\u0027m prioritizing essential features for Indonesian marketplace sellers, specifically targeting Shopee integration. The goal is to create a complete and production-ready architecture, along with the foundational code blueprint. This initial design will be the critical step toward a viable MVP.\n\n\n",
+        "thought": true
+      }],
+      "createTime": "2026-10-25T13:05:31.346Z"
+    }, {
+      "text": "Berikut adalah cetak biru teknis lengkap dan implementasi MVP fungsional untuk **ProdukLaku AI** (*\"Riset Lebih Cerdas, Jualan Lebih Untung\"*). Aplikasi ini dirancang modular: mendukung mode demo offline (*zero-config*) dan mode produksi terhubung Supabase \u0026 Google Gemini API.\n\n---\n\n### Daftar Isi\n1. **Struktur Direktori Proyek**\n2. **Skema Database PostgreSQL (Supabase DDL \u0026 RLS)**\n3. **Core Engine: Kalkulator Finansial \u0026 Scoring Deterministik (TypeScript)**\n4. **Backend Server (Node.js/Express + Supabase Auth + Gemini Proxy)**\n5. **Frontend Core (Vite + React + Tailwind CSS + Dashboard \u0026 Modul MVP)**\n6. **Data Demo \u0026 Mock Store**\n7. **Environment Variables (`.env.example`)**\n8. **Panduan Instalasi \u0026 Menjalankan Aplikasi**\n9. **Keterbatasan, Disclaimer Hukum \u0026 Roadmap Tahap 2–3**\n\n---\n\n## 1. Struktur Direktori Proyek\n\nArsitektur monorepo sederhana (*client-server*) agar mudah diuji secara lokal dan dideploy ke Vercel/Render.\n\n```text\nproduklaku-ai/\n├── package.json\n├── .env.example\n├── README.md\n├── server/\n│   ├── package.json\n│   ├── tsconfig.json\n│   ├── src/\n│   │   ├── index.ts\n│   │   ├── middleware/\n│   │   │   ├── auth.ts\n│   │   │   └── rateLimiter.ts\n│   │   ├── routes/\n│   │   │   ├── ai.ts\n│   │   │   ├── products.ts\n│   │   │   └── competitors.ts\n│   │   ├── services/\n│   │   │   ├── gemini.ts\n│   │   │   └── supabase.ts\n│   │   └── utils/\n│   │       └── validator.ts\n├── client/\n│   ├── package.json\n│   ├── tsconfig.json\n│   ├── vite.config.ts\n│   ├── tailwind.config.js\n│   ├── postcss.config.js\n│   ├── index.html\n│   ├── src/\n│   │   ├── App.tsx\n│   │   ├── main.tsx\n│   │   ├── index.css\n│   │   ├── components/\n│   │   │   ├── layout/\n│   │   │   │   ├── Sidebar.tsx\n│   │   │   │   ├── Header.tsx\n│   │   │   │   └── DemoBadge.tsx\n│   │   │   ├── ui/\n│   │   │   │   ├── Card.tsx\n│   │   │   │   ├── Button.tsx\n│   │   │   │   ├── Input.tsx\n│   │   │   │   └── Modal.tsx\n│   │   ├── pages/\n│   │   │   ├── DashboardPage.tsx\n│   │   │   ├── ResearchPage.tsx\n│   │   │   ├── CalculatorPage.tsx\n│   │   │   ├── SimulationPage.tsx\n│   │   │   ├── CompetitorPage.tsx\n│   │   │   ├── SupplierPage.tsx\n│   │   │   └── ChatbotPage.tsx\n│   │   ├── lib/\n│   │   │   ├── calculator.ts      \u003c-- Mesin hitung matematis murni\n│   │   │   ├── scoring.ts         \u003c-- Algoritma Product Score 0-100\n│   │   │   ├── mockData.ts        \u003c-- Data lokal berlabel demo\n│   │   │   └── supabaseClient.ts\n│   │   └── types/\n│   │       └── index.ts\n```\n\n---\n\n## 2. Skema Database PostgreSQL (Supabase DDL \u0026 RLS)\n\nJalankan script SQL berikut pada **Supabase SQL Editor**. Skema ini mencakup Row Level Security (RLS) terisolasi per akun.\n\n```sql\n-- Aktifkan ekstensi UUID\nCREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";\n\n-- 1. TABEL PROFIL PENGGUNA\nCREATE TABLE public.profiles (\n    id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,\n    full_name TEXT,\n    business_name TEXT,\n    created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE(\u0027utc\u0027, NOW()) NOT NULL\n);\n\n-- 2. TABEL PRODUK\nCREATE TABLE public.products (\n    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\n    user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,\n    name TEXT NOT NULL,\n    category TEXT NOT NULL,\n    target_marketplace TEXT NOT NULL,\n    weight_grams NUMERIC DEFAULT 0,\n    cogs_price NUMERIC NOT NULL,              -- Harga Beli Supplier\n    target_selling_price NUMERIC NOT NULL,    -- Target Harga Jual\n    marketplace_fee_percent NUMERIC DEFAULT 6.5,\n    ad_cost_per_order NUMERIC DEFAULT 0,\n    shipping_subsidy NUMERIC DEFAULT 0,\n    packaging_cost NUMERIC DEFAULT 2000,\n    operational_cost NUMERIC DEFAULT 1000,\n    return_rate_percent NUMERIC DEFAULT 2.0,\n    score NUMERIC(5,2) DEFAULT NULL,\n    score_breakdown JSONB DEFAULT \u0027{}\u0027::jsonb,\n    is_verified_data BOOLEAN DEFAULT FALSE,\n    notes TEXT,\n    created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE(\u0027utc\u0027, NOW()) NOT NULL,\n    updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE(\u0027utc\u0027, NOW()) NOT NULL\n);\n\n-- 3. TABEL SUPPLIER\nCREATE TABLE public.suppliers (\n    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\n    user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,\n    product_id UUID REFERENCES public.products(id) ON DELETE SET NULL,\n    name TEXT NOT NULL,\n    contact TEXT,\n    location TEXT,\n    price_per_unit NUMERIC NOT NULL,\n    moq INTEGER DEFAULT 1,\n    shipping_cost_estimate NUMERIC DEFAULT 0,\n    lead_time_days INTEGER DEFAULT 3,\n    payment_terms TEXT,\n    reliability_rating INTEGER CHECK (reliability_rating BETWEEN 1 AND 5),\n    created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE(\u0027utc\u0027, NOW()) NOT NULL\n);\n\n-- 4. TABEL KOMPETITOR\nCREATE TABLE public.competitors (\n    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\n    user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,\n    product_id UUID REFERENCES public.products(id) ON DELETE CASCADE NOT NULL,\n    competitor_name TEXT NOT NULL,\n    selling_price NUMERIC NOT NULL,\n    estimated_sales_monthly INTEGER DEFAULT 0,\n    rating NUMERIC(2,1) DEFAULT 0.0,\n    advantages TEXT,\n    weaknesses TEXT,\n    source_url TEXT,\n    data_date DATE DEFAULT CURRENT_DATE,\n    created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE(\u0027utc\u0027, NOW()) NOT NULL\n);\n\n-- 5. TABEL RIWAYAT CHATBOT\nCREATE TABLE public.chat_messages (\n    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\n    user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,\n    product_id UUID REFERENCES public.products(id) ON DELETE SET NULL,\n    role TEXT CHECK (role IN (\u0027user\u0027, \u0027assistant\u0027)) NOT NULL,\n    content TEXT NOT NULL,\n    created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE(\u0027utc\u0027, NOW()) NOT NULL\n);\n\n-- ROW LEVEL SECURITY (RLS) SETUP\nALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;\nALTER TABLE public.products ENABLE ROW LEVEL SECURITY;\nALTER TABLE public.suppliers ENABLE ROW LEVEL SECURITY;\nALTER TABLE public.competitors ENABLE ROW LEVEL SECURITY;\nALTER TABLE public.chat_messages ENABLE ROW LEVEL SECURITY;\n\nCREATE POLICY \"Users can only access own profile\" ON public.profiles\n    FOR ALL USING (auth.uid() \u003d id);\n\nCREATE POLICY \"Users can only access own products\" ON public.products\n    FOR ALL USING (auth.uid() \u003d user_id);\n\nCREATE POLICY \"Users can only access own suppliers\" ON public.suppliers\n    FOR ALL USING (auth.uid() \u003d user_id);\n\nCREATE POLICY \"Users can only access own competitors\" ON public.competitors\n    FOR ALL USING (auth.uid() \u003d user_id);\n\nCREATE POLICY \"Users can only access own chat messages\" ON public.chat_messages\n    FOR ALL USING (auth.uid() \u003d user_id);\n```\n\n---\n\n## 3. Core Engine: Kalkulator Finansial \u0026 Scoring Deterministik\n\nSimpan modul ini di `client/src/lib/calculator.ts` dan `client/src/lib/scoring.ts`. Seluruh kalkulasi bersifat **deterministik matematis**, independen dari respon teks AI.\n\n### `client/src/lib/calculator.ts`\n```typescript\nexport interface UnitEconomicsInput {\n  cogsPrice: number;            // Harga Beli/HPP\n  sellingPrice: number;         // Harga Jual Konsumen\n  marketplaceFeePercent: number;// Admin Fee (e.g. 6.5%)\n  serviceFeeFixed: number;      // Biaya transaksi tetap (e.g. Rp 1.000)\n  packagingCost: number;        // Kardus, bubble wrap, lakban\n  shippingSubsidy: number;      // Subsidi bebas ongkir seller\n  adCostPerOrder: number;       // Rata-rata budget ads per konversi\n  operationalPerUnit: number;   // Gaji/packing fee per unit\n  returnRatePercent: number;    // Estimasi barang retur/rusak (e.g. 2%)\n  taxPercent?: number;          // PPh Final UMKM 0.5% jika ada\n}\n\nexport interface UnitEconomicsOutput {\n  marketplaceFeeTotal: number;\n  variableCostsTotal: number;\n  totalCostPerUnit: number;\n  netProfitPerUnit: number;\n  netMarginPercent: number;\n  roiPercent: number;\n  breakEvenUnits: (fixedCostMonthly: number) \u003d\u003e number;\n}\n\nexport function calculateUnitEconomics(input: UnitEconomicsInput): UnitEconomicsOutput {\n  const {\n    cogsPrice,\n    sellingPrice,\n    marketplaceFeePercent,\n    serviceFeeFixed,\n    packagingCost,\n    shippingSubsidy,\n    adCostPerOrder,\n    operationalPerUnit,\n    returnRatePercent,\n    taxPercent \u003d 0.5,\n  } \u003d input;\n\n  // 1. Biaya Marketplace\n  const marketplacePercentageFee \u003d (marketplaceFeePercent / 100) * sellingPrice;\n  const marketplaceFeeTotal \u003d marketplacePercentageFee + serviceFeeFixed;\n\n  // 2. Biaya Retur (alokasi risiko)\n  const returnRiskAllowance \u003d (returnRatePercent / 100) * (cogsPrice + packagingCost);\n\n  // 3. Pajak UMKM (PP 55/2022: 0.5% dari omzet bruto jika berlaku)\n  const taxAmount \u003d (taxPercent / 100) * sellingPrice;\n\n  // 4. Total Biaya Variabel per Unit di luar HPP\n  const variableCostsTotal \u003d\n    marketplaceFeeTotal +\n    packagingCost +\n    shippingSubsidy +\n    adCostPerOrder +\n    operationalPerUnit +\n    returnRiskAllowance +\n    taxAmount;\n\n  // 5. Total Beban per Unit\n  const totalCostPerUnit \u003d cogsPrice + variableCostsTotal;\n\n  // 6. Laba Bersih \u0026 Margin\n  const netProfitPerUnit \u003d sellingPrice - totalCostPerUnit;\n  const netMarginPercent \u003d sellingPrice \u003e 0 ? (netProfitPerUnit / sellingPrice) * 100 : 0;\n  const roiPercent \u003d totalCostPerUnit \u003e 0 ? (netProfitPerUnit / totalCostPerUnit) * 100 : 0;\n\n  return {\n    marketplaceFeeTotal: Math.round(marketplaceFeeTotal),\n    variableCostsTotal: Math.round(variableCostsTotal),\n    totalCostPerUnit: Math.round(totalCostPerUnit),\n    netProfitPerUnit: Math.round(netProfitPerUnit),\n    netMarginPercent: Number(netMarginPercent.toFixed(2)),\n    roiPercent: Number(roiPercent.toFixed(2)),\n    breakEvenUnits: (fixedCostMonthly: number) \u003d\u003e {\n      const contributionMargin \u003d sellingPrice - variableCostsTotal - cogsPrice;\n      if (contributionMargin \u003c\u003d 0) return Infinity; // Tidak pernah impas jika margin minus\n      return Math.ceil(fixedCostMonthly / contributionMargin);\n    },\n  };\n}\n```\n\n### `client/src/lib/scoring.ts`\n```typescript\nexport interface ScoreInput {\n  netMarginPercent: number;\n  capitalRequirement: number;   // Estimasi modal stok batch pertama\n  userAvailableCapital: number; // Modal milik penjual\n  stockRiskLevel: \u0027LOW\u0027 | \u0027MEDIUM\u0027 | \u0027HIGH\u0027; // Ditentukan dari umur kedaluwarsa, tren cepat musiman, atau barang pecah belah\n  competitionCount: number;     // Jumlah kompetitor terdata\n  supplierRating: number;       // 1 - 5\n}\n\nexport interface ScoreOutput {\n  score: number;\n  status: \u0027Layak Diuji\u0027 | \u0027Perlu Perbaikan\u0027 | \u0027Risiko Tinggi\u0027;\n  breakdown: {\n    marginScore: number;       // Bobot 30%\n    stockRiskScore: number;    // Bobot 25%\n    competitionScore: number;  // Bobot 20%\n    capitalFitScore: number;   // Bobot 15%\n    supplierScore: number;     // Bobot 10%\n  };\n  reasons: string[];\n  caveats: string[];\n}\n\nexport function calculateProductScore(input: ScoreInput): ScoreOutput {\n  const reasons: string[] \u003d [];\n  const caveats: string[] \u003d [];\n\n  // A. Margin Score (30%)\n  // Standar e-commerce Indonesia: \u003c15% (Buruk), 15-25% (Cukup), \u003e30% (Sangat Baik)\n  let marginScore \u003d 0;\n  if (input.netMarginPercent \u003e\u003d 35) {\n    marginScore \u003d 100;\n    reasons.push(\u0027Margin bersih sangat tebal (\u003e35%), aman untuk biaya ads marketplace.\u0027);\n  } else if (input.netMarginPercent \u003e\u003d 20) {\n    marginScore \u003d 75;\n    reasons.push(\u0027Margin sehat (20-35%), cukup menyerap biaya retur dan promo.\u0027);\n  } else if (input.netMarginPercent \u003e\u003d 10) {\n    marginScore \u003d 40;\n    caveats.push(\u0027Margin tipis (10-20%). Sangat rentan rugi jika ad-cost naik.\u0027);\n  } else {\n    marginScore \u003d 10;\n    caveats.push(\u0027Margin di bawah 10%. Berisiko defisit setelah admin fee platform.\u0027);\n  }\n\n  // B. Risiko Stok (25%)\n  let stockRiskScore \u003d 50;\n  if (input.stockRiskLevel \u003d\u003d\u003d \u0027LOW\u0027) {\n    stockRiskScore \u003d 100;\n    reasons.push(\u0027Risiko penyusutan/kedaluwarsa rendah.\u0027);\n  } else if (input.stockRiskLevel \u003d\u003d\u003d \u0027MEDIUM\u0027) {\n    stockRiskScore \u003d 60;\n  } else {\n    stockRiskScore \u003d 20;\n    caveats.push(\u0027Risiko stok tinggi (musiman/pecah belah/masa simpan pendek).\u0027);\n  }\n\n  // C. Tingkat Persaingan (20%)\n  let competitionScore \u003d 50;\n  if (input.competitionCount \u003d\u003d\u003d 0) {\n    competitionScore \u003d 50; // Belum ada data\n    caveats.push(\u0027Data kompetitor belum diverifikasi.\u0027);\n  } else if (input.competitionCount \u003c\u003d 3) {\n    competitionScore \u003d 90;\n    reasons.push(\u0027Sedikit kompetitor terdata, peluang diferensiasi terbuka.\u0027);\n  } else if (input.competitionCount \u003c\u003d 10) {\n    competitionScore \u003d 60;\n  } else {\n    competitionScore \u003d 30;\n    caveats.push(\u0027Pasar sangat padat (kompetitor \u003e 10). Perang harga mungkin terjadi.\u0027);\n  }\n\n  // D. Kebutuhan Modal vs Modal Tersedia (15%)\n  let capitalFitScore \u003d 50;\n  const capitalRatio \u003d input.capitalRequirement / Math.max(input.userAvailableCapital, 1);\n  if (capitalRatio \u003c\u003d 0.5) {\n    capitalFitScore \u003d 100;\n    reasons.push(\u0027Kebutuhan modal batch pertama di bawah 50% kas, arus kas aman.\u0027);\n  } else if (capitalRatio \u003c\u003d 0.9) {\n    capitalFitScore \u003d 75;\n  } else {\n    capitalFitScore \u003d 25;\n    caveats.push(\u0027Modal batch menguras \u003e90% kas penjual tanpa cadangan kas darurat.\u0027);\n  }\n\n  // E. Keandalan Supplier (10%)\n  const supplierScore \u003d Math.min(Math.max((input.supplierRating / 5) * 100, 20), 100);\n\n  // Kalkulasi Skor Akhir Berbobot\n  const finalScore \u003d Math.round(\n    marginScore * 0.3 +\n    stockRiskScore * 0.25 +\n    competitionScore * 0.2 +\n    capitalFitScore * 0.15 +\n    supplierScore * 0.1\n  );\n\n  let status: \u0027Layak Diuji\u0027 | \u0027Perlu Perbaikan\u0027 | \u0027Risiko Tinggi\u0027 \u003d \u0027Perlu Perbaikan\u0027;\n  if (finalScore \u003e\u003d 75) status \u003d \u0027Layak Diuji\u0027;\n  else if (finalScore \u003c 50) status \u003d \u0027Risiko Tinggi\u0027;\n\n  return {\n    score: finalScore,\n    status,\n    breakdown: {\n      marginScore,\n      stockRiskScore,\n      competitionScore,\n      capitalFitScore,\n      supplierScore,\n    },\n    reasons,\n    caveats,\n  };\n}\n```\n\n---\n\n## 4. Backend Server (Node.js/Express + Supabase Auth + Gemini Proxy)\n\nBackend ini menangani enkapsulasi API Key Google Gemini, pembatasan rate limit (*safety check*), dan injeksi instruksi sistem anti-halusinasi data pasar.\n\n### `server/package.json`\n```json\n{\n  \"name\": \"produklaku-server\",\n  \"version\": \"1.0.0\",\n  \"main\": \"dist/index.js\",\n  \"scripts\": {\n    \"build\": \"tsc\",\n    \"start\": \"node dist/index.js\",\n    \"dev\": \"ts-node-dev --respawn src/index.ts\"\n  },\n  \"dependencies\": {\n    \"@google/genai\": \"^0.1.1\",\n    \"@supabase/supabase-js\": \"^2.39.8\",\n    \"cors\": \"^2.8.5\",\n    \"dotenv\": \"^16.4.5\",\n    \"express\": \"^4.19.2\",\n    \"express-rate-limit\": \"^7.2.0\"\n  },\n  \"devDependencies\": {\n    \"@types/cors\": \"^2.8.17\",\n    \"@types/express\": \"^4.17.21\",\n    \"@types/node\": \"^20.11.30\",\n    \"ts-node-dev\": \"^2.0.0\",\n    \"typescript\": \"^5.4.3\"\n  }\n}\n```\n\n### `server/src/index.ts`\n```typescript\nimport express from \u0027express\u0027;\nimport cors from \u0027cors\u0027;\nimport dotenv from \u0027dotenv\u0027;\nimport rateLimit from \u0027express-rate-limit\u0027;\nimport { GoogleGenAI } from \u0027@google/genai\u0027;\n\ndotenv.config();\n\nconst app \u003d express();\nconst PORT \u003d process.env.PORT || 5000;\n\napp.use(cors({ origin: process.env.CLIENT_URL || \u0027http://localhost:5173\u0027 }));\napp.use(express.json());\n\n// Proteksi Rate Limiting: 30 request per 15 menit per IP\nconst aiLimiter \u003d rateLimit({\n  windowMs: 15 * 60 * 1000,\n  max: 30,\n  message: { error: \u0027Batas pemanggilan AI tercapai. Silakan coba 15 menit lagi.\u0027 },\n});\n\n// Inisialisasi Google Gen AI SDK\nconst ai \u003d new GoogleGenAI({\n  apiKey: process.env.GEMINI_API_KEY || \u0027\u0027,\n});\n\n// PROMPT SISTEM ANTI-HALUSINASI\nconst SYSTEM_PROMPT \u003d `\nAnda adalah analis bisnis e-commerce Indonesia untuk \"ProdukLaku AI\".\nPrinsip wajib:\n1. Jangan pernah mengarang angka transaksi, total terjual, atau statistik marketplace seolah itu data pasti tanpa ada verifikasi.\n2. Gunakan Bahasa Indonesia profesional dan lugas.\n3. Selalu bedakan antara \"Fakta Terdata\", \"Estimasi/Asumsi\", dan \"Saran Strategis\".\n4. Fokus pada metrik praktis UMKM/penjual Shopee, TikTok Shop, dan Tokopedia di Indonesia.\n`;\n\n// ROUTE 1: Konsultasi Chatbot Produk\napp.post(\u0027/api/ai/chat\u0027, aiLimiter, async (req, res) \u003d\u003e {\n  try {\n    const { message, productContext } \u003d req.body;\n\n    if (!process.env.GEMINI_API_KEY) {\n      return res.status(503).json({\n        reply: \"Mode Demo Aktif: API Key Gemini belum dikonfigurasi di file .env server. Silakan isi GEMINI_API_KEY untuk respon kecerdasan buatan langsung.\",\n        isDemo: true\n      });\n    }\n\n    const prompt \u003d `\nContext Produk Pengguna: ${JSON.stringify(productContext || {})}\nPertanyaan Pengguna: \"${message}\"\n\nBerikan jawaban terstruktur:\n1. Analisis/Jawaban Langsung.\n2. Pertimbangan Risiko Arus Kas/Stok.\n3. Rekomendasi Tindakan Nyata.\n`;\n\n    const response \u003d await ai.models.generateContent({\n      model: \u0027gemini-2.5-flash\u0027,\n      contents: prompt,\n      config: {\n        systemInstruction: SYSTEM_PROMPT,\n        temperature: 0.2, // Rendah agar tidak halusinasi\n      }\n    });\n\n    return res.json({ reply: response.text, isDemo: false });\n  } catch (error: any) {\n    console.error(\u0027Gemini API Error:\u0027, error);\n    return res.status(500).json({ error: \u0027Gagal memproses analisis AI. Periksa kuota atau kunci API Anda.\u0027 });\n  }\n});\n\n// ROUTE 2: Ekstraksi Ide \u0026 Kriteria Produk\napp.post(\u0027/api/ai/ideate\u0027, aiLimiter, async (req, res) \u003d\u003e {\n  try {\n    const { category, marketplace, budget } \u003d req.body;\n\n    if (!process.env.GEMINI_API_KEY) {\n      return res.json({\n        isDemo: true,\n        ideas: [\n          {\n            name: \"Organizer Dapur Transparan (Demo)\",\n            category: category || \"Perlengkapan Rumah\",\n            reason: \"Permintaan stabil pada live-stream shopping wanita 25-40 tahun.\",\n            riskNotes: \"Volume besar memperbesar biaya ongkir/kubikasi gudang.\",\n            missingData: \"Biaya packing kardus khusus agar mika tidak retak.\"\n          }\n        ]\n      });\n    }\n\n    const prompt \u003d `\nKategori: ${category}\nMarketplace: ${marketplace}\nModal: Rp ${budget}\n\nHasilkan 3 ide produk potensial dalam format JSON VALID tanpa tag pembuka/penutup markdown:\n[\n  {\n    \"name\": \"nama produk\",\n    \"category\": \"${category}\",\n    \"reason\": \"alasan pasar logis\",\n    \"riskNotes\": \"faktor risiko fisik atau persaingan\",\n    \"missingData\": \"data lanjutan yang harus dicari penjual\"\n  }\n]\n`;\n\n    const response \u003d await ai.models.generateContent({\n      model: \u0027gemini-2.5-flash\u0027,\n      contents: prompt,\n      config: {\n        systemInstruction: SYSTEM_PROMPT,\n        responseMimeType: \"application/json\"\n      }\n    });\n\n    const parsed \u003d JSON.parse(response.text || \"[]\");\n    return res.json({ ideas: parsed, isDemo: false });\n  } catch (err: any) {\n    console.error(err);\n    return res.status(500).json({ error: \u0027Gagal menghasilkan ide produk.\u0027 });\n  }\n});\n\napp.listen(PORT, () \u003d\u003e {\n  console.log(`Server ProdukLaku AI berjalan di http://localhost:${PORT}`);\n});\n```\n\n---\n\n## 5. Frontend Core (Vite + React + Tailwind + Recharts)\n\n### Setup Frontend UI\n\nLetakkan konfigurasi styling pada `client/tailwind.config.js`:\n```javascript\n/** @type {import(\u0027tailwindcss\u0027).Config} */\nexport default {\n  content: [\"./index.html\", \"./src/**/*.{js,ts,jsx,tsx}\"],\n  theme: {\n    extend: {\n      colors: {\n        brand: {\n          navy: \"#0F172A\",\n          blue: \"#2563EB\",\n          green: \"#16A34A\",\n          red: \"#DC2626\",\n          slate: \"#64748B\",\n          bg: \"#F8FAFC\"\n        }\n      }\n    },\n  },\n  plugins: [],\n}\n```\n\n### Type Definitions (`client/src/types/index.ts`)\n```typescript\nexport interface ProductItem {\n  id: string;\n  name: string;\n  category: string;\n  marketplace: string;\n  cogsPrice: number;\n  sellingPrice: number;\n  weightGrams: number;\n  stockQty: number;\n  score: number;\n  scoreStatus: \u0027Layak Diuji\u0027 | \u0027Perlu Perbaikan\u0027 | \u0027Risiko Tinggi\u0027;\n  isVerified: boolean;\n  notes?: string;\n}\n```\n\n### Data Demo Mock (`client/src/lib/mockData.ts`)\n```typescript\nimport { ProductItem } from \u0027../types\u0027;\n\nexport const INITIAL_DEMO_PRODUCTS: ProductItem[] \u003d [\n  {\n    id: \"prod-demo-01\",\n    name: \"Lampu Meja LED Fleksibel USB (DEMO)\",\n    category: \"Elektronik \u0026 Rumah Tangga\",\n    marketplace: \"Shopee\",\n    cogsPrice: 18500,\n    sellingPrice: 42000,\n    weightGrams: 250,\n    stockQty: 100,\n    score: 82,\n    scoreStatus: \"Layak Diuji\",\n    isVerified: false,\n    notes: \"Data contoh: HPP didapat dari supplier lokal Tanah Abang.\"\n  },\n  {\n    id: \"prod-demo-02\",\n    name: \"Botol Tumbler Stainless 500ml Polos (DEMO)\",\n    category: \"Perlengkapan Minum\",\n    marketplace: \"TikTok Shop\",\n    cogsPrice: 32000,\n    sellingPrice: 49000,\n    weightGrams: 350,\n    stockQty: 50,\n    score: 54,\n    scoreStatus: \"Perlu Perbaikan\",\n    isVerified: false,\n    notes: \"Data contoh: Margin tipis tergerus komisi affiliator TikTok.\"\n  }\n];\n```\n\n### Aplikasi Utama (`client/src/App.tsx`)\n```tsx\nimport React, { useState } from \u0027react\u0027;\nimport { \n  LayoutDashboard, \n  Search, \n  Calculator, \n  TrendingUp, \n  Users, \n  Truck, \n  MessageSquareSquare, \n  AlertCircle \n} from \u0027lucide-react\u0027;\n\nimport DashboardPage from \u0027./pages/DashboardPage\u0027;\nimport CalculatorPage from \u0027./pages/CalculatorPage\u0027;\nimport ResearchPage from \u0027./pages/ResearchPage\u0027;\nimport SimulationPage from \u0027./pages/SimulationPage\u0027;\nimport ChatbotPage from \u0027./pages/ChatbotPage\u0027;\nimport { INITIAL_DEMO_PRODUCTS } from \u0027./lib/mockData\u0027;\nimport { ProductItem } from \u0027./types\u0027;\n\nexport default function App() {\n  const [activeTab, setActiveTab] \u003d useState\u003c\u0027dashboard\u0027 | \u0027calc\u0027 | \u0027research\u0027 | \u0027simulation\u0027 | \u0027chat\u0027\u003e(\u0027dashboard\u0027);\n  const [products, setProducts] \u003d useState\u003cProductItem[]\u003e(INITIAL_DEMO_PRODUCTS);\n  const [selectedProduct, setSelectedProduct] \u003d useState\u003cProductItem\u003e(products[0]);\n\n  return (\n    \u003cdiv className\u003d\"flex h-screen bg-slate-50 text-slate-800 font-sans\"\u003e\n      {/* Sidebar Navigasi */}\n      \u003caside className\u003d\"w-64 bg-slate-900 text-white flex flex-col justify-between\"\u003e\n        \u003cdiv\u003e\n          \u003cdiv className\u003d\"p-6 border-b border-slate-800\"\u003e\n            \u003ch1 className\u003d\"text-xl font-bold tracking-tight text-white flex items-center gap-2\"\u003e\n              \u003cspan className\u003d\"text-blue-500\"\u003eProdukLaku\u003c/span\u003e AI\n            \u003c/h1\u003e\n            \u003cp className\u003d\"text-xs text-slate-400 mt-1\"\u003eRiset Lebih Cerdas, Jualan Lebih Untung.\u003c/p\u003e\n          \u003c/div\u003e\n\n          \u003cnav className\u003d\"p-4 space-y-1\"\u003e\n            \u003cbutton\n              onClick\u003d{() \u003d\u003e setActiveTab(\u0027dashboard\u0027)}\n              className\u003d{`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${\n                activeTab \u003d\u003d\u003d \u0027dashboard\u0027 ? \u0027bg-blue-600 text-white\u0027 : \u0027text-slate-400 hover:bg-slate-800 hover:text-white\u0027\n              }`}\n            \u003e\n              \u003cLayoutDashboard size\u003d{18} /\u003e Dashboard\n            \u003c/button\u003e\n            \u003cbutton\n              onClick\u003d{() \u003d\u003e setActiveTab(\u0027research\u0027)}\n              className\u003d{`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${\n                activeTab \u003d\u003d\u003d \u0027research\u0027 ? \u0027bg-blue-600 text-white\u0027 : \u0027text-slate-400 hover:bg-slate-800 hover:text-white\u0027\n              }`}\n            \u003e\n              \u003cSearch size\u003d{18} /\u003e AI Product Research\n            \u003c/button\u003e\n            \u003cbutton\n              onClick\u003d{() \u003d\u003e setActiveTab(\u0027calc\u0027)}\n              className\u003d{`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${\n                activeTab \u003d\u003d\u003d \u0027calc\u0027 ? \u0027bg-blue-600 text-white\u0027 : \u0027text-slate-400 hover:bg-slate-800 hover:text-white\u0027\n              }`}\n            \u003e\n              \u003cCalculator size\u003d{18} /\u003e Kalkulator Keuntungan\n            \u003c/button\u003e\n            \u003cbutton\n              onClick\u003d{() \u003d\u003e setActiveTab(\u0027simulation\u0027)}\n              className\u003d{`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${\n                activeTab \u003d\u003d\u003d \u0027simulation\u0027 ? \u0027bg-blue-600 text-white\u0027 : \u0027text-slate-400 hover:bg-slate-800 hover:text-white\u0027\n              }`}\n            \u003e\n              \u003cTrendingUp size\u003d{18} /\u003e Simulasi Modal \u0026 Risiko\n            \u003c/button\u003e\n            \u003cbutton\n              onClick\u003d{() \u003d\u003e setActiveTab(\u0027chat\u0027)}\n              className\u003d{`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${\n                activeTab \u003d\u003d\u003d \u0027chat\u0027 ? \u0027bg-blue-600 text-white\u0027 : \u0027text-slate-400 hover:bg-slate-800 hover:text-white\u0027\n              }`}\n            \u003e\n              \u003cMessageSquareSquare size\u003d{18} /\u003e Asisten Chat AI\n            \u003c/button\u003e\n          \u003c/nav\u003e\n        \u003c/div\u003e\n\n        \u003cdiv className\u003d\"p-4 border-t border-slate-800 text-xs text-slate-500\"\u003e\n          Mode Akun: \u003cspan className\u003d\"text-amber-400 font-semibold\"\u003eDemo Lokal\u003c/span\u003e\n          \u003cp className\u003d\"mt-1\"\u003eTidak ada data marketplace scraped.\u003c/p\u003e\n        \u003c/div\u003e\n      \u003c/aside\u003e\n\n      {/* Main View Area */}\n      \u003cmain className\u003d\"flex-1 flex flex-col overflow-y-auto\"\u003e\n        \u003cheader className\u003d\"h-16 bg-white border-b border-slate-200 px-8 flex items-center justify-between\"\u003e\n          \u003cdiv className\u003d\"flex items-center gap-2\"\u003e\n            \u003cspan className\u003d\"text-xs px-2.5 py-1 bg-amber-100 text-amber-800 font-medium rounded-full flex items-center gap-1\"\u003e\n              \u003cAlertCircle size\u003d{14} /\u003e DEMO MODE: Data Contoh\n            \u003c/span\u003e\n          \u003c/div\u003e\n          \u003cdiv className\u003d\"text-sm text-slate-500\"\u003e\n            Mata Uang: \u003cstrong\u003eIDR (Rp)\u003c/strong\u003e | Wilayah: \u003cstrong\u003eIndonesia\u003c/strong\u003e\n          \u003c/div\u003e\n        \u003c/header\u003e\n\n        \u003cdiv className\u003d\"p-8\"\u003e\n          {activeTab \u003d\u003d\u003d \u0027dashboard\u0027 \u0026\u0026 (\n            \u003cDashboardPage products\u003d{products} onSelectProduct\u003d{(p) \u003d\u003e { setSelectedProduct(p); setActiveTab(\u0027calc\u0027); }} /\u003e\n          )}\n          {activeTab \u003d\u003d\u003d \u0027calc\u0027 \u0026\u0026 (\n            \u003cCalculatorPage product\u003d{selectedProduct} /\u003e\n          )}\n          {activeTab \u003d\u003d\u003d \u0027research\u0027 \u0026\u0026 (\n            \u003cResearchPage onAddProduct\u003d{(newP) \u003d\u003e setProducts([...products, newP])} /\u003e\n          )}\n          {activeTab \u003d\u003d\u003d \u0027simulation\u0027 \u0026\u0026 (\n            \u003cSimulationPage product\u003d{selectedProduct} /\u003e\n          )}\n          {activeTab \u003d\u003d\u003d \u0027chat\u0027 \u0026\u0026 (\n            \u003cChatbotPage activeProduct\u003d{selectedProduct} /\u003e\n          )}\n        \u003c/div\u003e\n      \u003c/main\u003e\n    \u003c/div\u003e\n  );\n}\n```\n\n### Halaman Kalkulator Keuntungan (`client/src/pages/CalculatorPage.tsx`)\n```tsx\nimport React, { useState, useMemo } from \u0027react\u0027;\nimport { calculateUnitEconomics } from \u0027../lib/calculator\u0027;\nimport { ProductItem } from \u0027../types\u0027;\n\nexport default function CalculatorPage({ product }: { product: ProductItem }) {\n  const [cogs, setCogs] \u003d useState\u003cnumber\u003e(product.cogsPrice);\n  const [sellingPrice, setSellingPrice] \u003d useState\u003cnumber\u003e(product.sellingPrice);\n  const [feePercent, setFeePercent] \u003d useState\u003cnumber\u003e(6.5);\n  const [packaging, setPackaging] \u003d useState\u003cnumber\u003e(2000);\n  const [shippingSubsidy, setShippingSubsidy] \u003d useState\u003cnumber\u003e(1500);\n  const [adCost, setAdCost] \u003d useState\u003cnumber\u003e(5000);\n  const [opsCost, setOpsCost] \u003d useState\u003cnumber\u003e(1000);\n  const [returnRate, setReturnRate] \u003d useState\u003cnumber\u003e(2);\n\n  const calcResult \u003d useMemo(() \u003d\u003e {\n    return calculateUnitEconomics({\n      cogsPrice: cogs,\n      sellingPrice,\n      marketplaceFeePercent: feePercent,\n      serviceFeeFixed: 1000,\n      packagingCost: packaging,\n      shippingSubsidy,\n      adCostPerOrder: adCost,\n      operationalPerUnit: opsCost,\n      returnRatePercent: returnRate,\n      taxPercent: 0.5,\n    });\n  }, [cogs, sellingPrice, feePercent, packaging, shippingSubsidy, adCost, opsCost, returnRate]);\n\n  return (\n    \u003cdiv className\u003d\"max-w-5xl mx-auto space-y-6\"\u003e\n      \u003cdiv\u003e\n        \u003ch2 className\u003d\"text-2xl font-bold text-slate-900\"\u003eKalkulator Margin Bersih \u0026 Unit Economics\u003c/h2\u003e\n        \u003cp className\u003d\"text-sm text-slate-500\"\u003ePerhitungan matematis deterministik tanpa asumsi fiktif.\u003c/p\u003e\n      \u003c/div\u003e\n\n      \u003cdiv className\u003d\"grid grid-cols-1 md:grid-cols-2 gap-6\"\u003e\n        {/* Formulir Input */}\n        \u003cdiv className\u003d\"bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4\"\u003e\n          \u003ch3 className\u003d\"text-base font-semibold text-slate-800 border-b pb-2\"\u003eKomponen Harga \u0026 Beban (IDR)\u003c/h3\u003e\n          \n          \u003cdiv className\u003d\"grid grid-cols-2 gap-4\"\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-xs font-semibold text-slate-600\"\u003eHarga Beli Supplier (HPP)\u003c/label\u003e\n              \u003cinput\n                type\u003d\"number\"\n                value\u003d{cogs}\n                onChange\u003d{(e) \u003d\u003e setCogs(Number(e.target.value))}\n                className\u003d\"w-full mt-1 px-3 py-2 border rounded-lg text-sm font-medium\"\n              /\u003e\n            \u003c/div\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-xs font-semibold text-slate-600\"\u003eTarget Harga Jual\u003c/label\u003e\n              \u003cinput\n                type\u003d\"number\"\n                value\u003d{sellingPrice}\n                onChange\u003d{(e) \u003d\u003e setSellingPrice(Number(e.target.value))}\n                className\u003d\"w-full mt-1 px-3 py-2 border rounded-lg text-sm font-medium\"\n              /\u003e\n            \u003c/div\u003e\n          \u003c/div\u003e\n\n          \u003cdiv className\u003d\"grid grid-cols-2 gap-4\"\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-xs font-semibold text-slate-600\"\u003eFee Marketplace (%)\u003c/label\u003e\n              \u003cinput\n                type\u003d\"number\"\n                step\u003d\"0.1\"\n                value\u003d{feePercent}\n                onChange\u003d{(e) \u003d\u003e setFeePercent(Number(e.target.value))}\n                className\u003d\"w-full mt-1 px-3 py-2 border rounded-lg text-sm\"\n              /\u003e\n            \u003c/div\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-xs font-semibold text-slate-600\"\u003eAlokasi Ads per Order\u003c/label\u003e\n              \u003cinput\n                type\u003d\"number\"\n                value\u003d{adCost}\n                onChange\u003d{(e) \u003d\u003e setAdCost(Number(e.target.value))}\n                className\u003d\"w-full mt-1 px-3 py-2 border rounded-lg text-sm\"\n              /\u003e\n            \u003c/div\u003e\n          \u003c/div\u003e\n\n          \u003cdiv className\u003d\"grid grid-cols-3 gap-3\"\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-xs font-semibold text-slate-600\"\u003ePacking\u003c/label\u003e\n              \u003cinput\n                type\u003d\"number\"\n                value\u003d{packaging}\n                onChange\u003d{(e) \u003d\u003e setPackaging(Number(e.target.value))}\n                className\u003d\"w-full mt-1 px-2.5 py-1.5 border rounded-lg text-sm\"\n              /\u003e\n            \u003c/div\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-xs font-semibold text-slate-600\"\u003eSubsidi Ongkir\u003c/label\u003e\n              \u003cinput\n                type\u003d\"number\"\n                value\u003d{shippingSubsidy}\n                onChange\u003d{(e) \u003d\u003e setShippingSubsidy(Number(e.target.value))}\n                className\u003d\"w-full mt-1 px-2.5 py-1.5 border rounded-lg text-sm\"\n              /\u003e\n            \u003c/div\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-xs font-semibold text-slate-600\"\u003eRetur (%)\u003c/label\u003e\n              \u003cinput\n                type\u003d\"number\"\n                value\u003d{returnRate}\n                onChange\u003d{(e) \u003d\u003e setReturnRate(Number(e.target.value))}\n                className\u003d\"w-full mt-1 px-2.5 py-1.5 border rounded-lg text-sm\"\n              /\u003e\n            \u003c/div\u003e\n          \u003c/div\u003e\n        \u003c/div\u003e\n\n        {/* Hasil Unit Economics */}\n        \u003cdiv className\u003d\"bg-slate-900 text-white p-6 rounded-xl flex flex-col justify-between shadow-md\"\u003e\n          \u003cdiv\u003e\n            \u003cspan className\u003d\"text-xs uppercase tracking-wider text-slate-400\"\u003eRingkasan Margin Bersih Realistis\u003c/span\u003e\n            \u003cdiv className\u003d\"mt-4 flex items-baseline gap-4\"\u003e\n              \u003cspan className\u003d{`text-4xl font-extrabold ${calcResult.netProfitPerUnit \u003e 0 ? \u0027text-green-400\u0027 : \u0027text-red-400\u0027}`}\u003e\n                Rp {calcResult.netProfitPerUnit.toLocaleString(\u0027id-ID\u0027)}\n              \u003c/span\u003e\n              \u003cspan className\u003d\"text-sm text-slate-300\"\u003e/ unit terjual\u003c/span\u003e\n            \u003c/div\u003e\n            \u003cdiv className\u003d\"mt-2 text-sm text-slate-300\"\u003e\n              Margin Bersih: \u003cstrong className\u003d\"text-white\"\u003e{calcResult.netMarginPercent}%\u003c/strong\u003e | ROI: \u003cstrong className\u003d\"text-white\"\u003e{calcResult.roiPercent}%\u003c/strong\u003e\n            \u003c/div\u003e\n          \u003c/div\u003e\n\n          \u003cdiv className\u003d\"space-y-2 py-4 border-t border-slate-800 text-sm\"\u003e\n            \u003cdiv className\u003d\"flex justify-between text-slate-400\"\u003e\n              \u003cspan\u003eTotal Beban Operasional \u0026 Ads:\u003c/span\u003e\n              \u003cspan\u003eRp {calcResult.variableCostsTotal.toLocaleString(\u0027id-ID\u0027)}\u003c/span\u003e\n            \u003c/div\u003e\n            \u003cdiv className\u003d\"flex justify-between text-slate-400\"\u003e\n              \u003cspan\u003eTotal HPP + Biaya per Unit:\u003c/span\u003e\n              \u003cspan\u003eRp {calcResult.totalCostPerUnit.toLocaleString(\u0027id-ID\u0027)}\u003c/span\u003e\n            \u003c/div\u003e\n            \u003cdiv className\u003d\"flex justify-between text-slate-400\"\u003e\n              \u003cspan\u003eBreak-Even (Fixed Cost Rp 3.000.000/bln):\u003c/span\u003e\n              \u003cspan className\u003d\"text-white font-medium\"\u003e{calcResult.breakEvenUnits(3000000)} Unit\u003c/span\u003e\n            \u003c/div\u003e\n          \u003c/div\u003e\n\n          \u003cdiv className\u003d\"p-3 bg-slate-800/80 rounded-lg text-xs text-slate-300\"\u003e\n            \u003cstrong\u003eKeterangan:\u003c/strong\u003e Hasil kalkulasi dihitung otomatis dari data biaya yang diinput di samping, mencakup asumsi PPh Final UMKM 0.5% dan risiko retur {returnRate}%.\n          \u003c/div\u003e\n        \u003c/div\u003e\n      \u003c/div\u003e\n    \u003c/div\u003e\n  );\n}\n```\n\n### Halaman Simulasi Modal \u0026 Risiko Tiga Skenario (`client/src/pages/SimulationPage.tsx`)\n```tsx\nimport React, { useState } from \u0027react\u0027;\nimport { ProductItem } from \u0027../types\u0027;\nimport { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from \u0027recharts\u0027;\n\nexport default function SimulationPage({ product }: { product: ProductItem }) {\n  const [initialCapital, setInitialCapital] \u003d useState\u003cnumber\u003e(10000000); // Rp 10 Juta\n  const [stockBatch, setStockBatch] \u003d useState\u003cnumber\u003e(200);\n\n  // Kalkulasi 3 Skenario\n  const cogs \u003d product.cogsPrice;\n  const price \u003d product.sellingPrice;\n  const stockCostTotal \u003d stockBatch * cogs;\n\n  const scenarios \u003d [\n    {\n      name: \u0027Pesimistis (Terjual 40%, Retur 5%)\u0027,\n      soldQty: Math.floor(stockBatch * 0.4),\n      revenue: Math.floor(stockBatch * 0.4) * price,\n      operationalCost: stockCostTotal + (stockBatch * 0.4 * 8000), // iklan boros\n      profit: (Math.floor(stockBatch * 0.4) * price) - (stockCostTotal + (stockBatch * 0.4 * 8000)),\n      unsoldCapital: (stockBatch - Math.floor(stockBatch * 0.4)) * cogs\n    },\n    {\n      name: \u0027Normal (Terjual 75%, Retur 2%)\u0027,\n      soldQty: Math.floor(stockBatch * 0.75),\n      revenue: Math.floor(stockBatch * 0.75) * price,\n      operationalCost: stockCostTotal + (stockBatch * 0.75 * 5000),\n      profit: (Math.floor(stockBatch * 0.75) * price) - (stockCostTotal + (stockBatch * 0.75 * 5000)),\n      unsoldCapital: (stockBatch - Math.floor(stockBatch * 0.75)) * cogs\n    },\n    {\n      name: \u0027Optimistis (Terjual 100%, Retur 1%)\u0027,\n      soldQty: stockBatch,\n      revenue: stockBatch * price,\n      operationalCost: stockCostTotal + (stockBatch * 3500),\n      profit: (stockBatch * price) - (stockCostTotal + (stockBatch * 3500)),\n      unsoldCapital: 0\n    }\n  ];\n\n  return (\n    \u003cdiv className\u003d\"space-y-6\"\u003e\n      \u003cdiv\u003e\n        \u003ch2 className\u003d\"text-2xl font-bold text-slate-900\"\u003eSimulasi Modal \u0026 Uji Sensitivitas\u003c/h2\u003e\n        \u003cp className\u003d\"text-sm text-slate-500\"\u003eMenganalisis skenario perputaran stok: {product.name}\u003c/p\u003e\n      \u003c/div\u003e\n\n      \u003cdiv className\u003d\"grid grid-cols-1 md:grid-cols-3 gap-4\"\u003e\n        \u003cdiv className\u003d\"bg-white p-4 border rounded-xl\"\u003e\n          \u003clabel className\u003d\"text-xs text-slate-500\"\u003eModal Kas Penjual\u003c/label\u003e\n          \u003cinput \n            type\u003d\"number\" \n            value\u003d{initialCapital} \n            onChange\u003d{(e) \u003d\u003e setInitialCapital(Number(e.target.value))}\n            className\u003d\"w-full text-lg font-bold text-slate-800 mt-1 border-b pb-1 focus:outline-none\"\n          /\u003e\n        \u003c/div\u003e\n        \u003cdiv className\u003d\"bg-white p-4 border rounded-xl\"\u003e\n          \u003clabel className\u003d\"text-xs text-slate-500\"\u003eRencana Pembelian Unit Stok\u003c/label\u003e\n          \u003cinput \n            type\u003d\"number\" \n            value\u003d{stockBatch} \n            onChange\u003d{(e) \u003d\u003e setStockBatch(Number(e.target.value))}\n            className\u003d\"w-full text-lg font-bold text-slate-800 mt-1 border-b pb-1 focus:outline-none\"\n          /\u003e\n        \u003c/div\u003e\n        \u003cdiv className\u003d\"bg-white p-4 border rounded-xl\"\u003e\n          \u003clabel className\u003d\"text-xs text-slate-500\"\u003eKas Terkunci pada Stok\u003c/label\u003e\n          \u003cdiv className\u003d\"text-lg font-bold text-blue-600 mt-1\"\u003e\n            Rp {stockCostTotal.toLocaleString(\u0027id-ID\u0027)}\n          \u003c/div\u003e\n          \u003cp className\u003d\"text-[11px] text-slate-400\"\u003e{(stockCostTotal / initialCapital * 100).toFixed(1)}% dari modal kas\u003c/p\u003e\n        \u003c/div\u003e\n      \u003c/div\u003e\n\n      {/* Grafik Perbandingan */}\n      \u003cdiv className\u003d\"bg-white p-6 border rounded-xl shadow-sm\"\u003e\n        \u003ch3 className\u003d\"text-sm font-semibold text-slate-700 mb-4\"\u003eGrafik Perbandingan Omzet vs Estimasi Laba Bersih\u003c/h3\u003e\n        \u003cdiv className\u003d\"h-72 w-full\"\u003e\n          \u003cResponsiveContainer width\u003d\"100%\" height\u003d\"100%\"\u003e\n            \u003cBarChart data\u003d{scenarios}\u003e\n              \u003cXAxis dataKey\u003d\"name\" fontSize\u003d{12} /\u003e\n              \u003cYAxis fontSize\u003d{12} /\u003e\n              \u003cTooltip formatter\u003d{(value: any) \u003d\u003e `Rp ${Number(value).toLocaleString(\u0027id-ID\u0027)}`} /\u003e\n              \u003cLegend /\u003e\n              \u003cBar dataKey\u003d\"revenue\" name\u003d\"Estimasi Omzet\" fill\u003d\"#2563EB\" radius\u003d{[4, 4, 0, 0]} /\u003e\n              \u003cBar dataKey\u003d\"profit\" name\u003d\"Estimasi Laba/Rugi\" fill\u003d\"#16A34A\" radius\u003d{[4, 4, 0, 0]} /\u003e\n              \u003cBar dataKey\u003d\"unsoldCapital\" name\u003d\"Modal Tertahan di Stok\" fill\u003d\"#DC2626\" radius\u003d{[4, 4, 0, 0]} /\u003e\n            \u003c/BarChart\u003e\n          \u003c/ResponsiveContainer\u003e\n        \u003c/div\u003e\n      \u003c/div\u003e\n    \u003c/div\u003e\n  );\n}\n```\n\n### Halaman AI Chatbot Terintegrasi Data Produk (`client/src/pages/ChatbotPage.tsx`)\n```tsx\nimport React, { useState } from \u0027react\u0027;\nimport { ProductItem } from \u0027../types\u0027;\nimport { Send, Bot, User } from \u0027lucide-react\u0027;\n\ninterface ChatMessage {\n  sender: \u0027user\u0027 | \u0027assistant\u0027;\n  text: string;\n  isDemo?: boolean;\n}\n\nexport default function ChatbotPage({ activeProduct }: { activeProduct: ProductItem }) {\n  const [messages, setMessages] \u003d useState\u003cChatMessage[]\u003e([\n    {\n      sender: \u0027assistant\u0027,\n      text: `Halo! Saya asisten ProdukLaku AI. Saya memegang data produk pilihan Anda: \"${activeProduct.name}\". Tanyakan simulasi harga jual, target margin, atau uji modal.`,\n    }\n  ]);\n  const [inputMsg, setInputMsg] \u003d useState(\u0027\u0027);\n  const [loading, setLoading] \u003d useState(false);\n\n  const sendMessage \u003d async () \u003d\u003e {\n    if (!inputMsg.trim()) return;\n\n    const userText \u003d inputMsg;\n    setInputMsg(\u0027\u0027);\n    setMessages((prev) \u003d\u003e [...prev, { sender: \u0027user\u0027, text: userText }]);\n    setLoading(true);\n\n    try {\n      const res \u003d await fetch(\u0027http://localhost:5000/api/ai/chat\u0027, {\n        method: \u0027POST\u0027,\n        headers: { \u0027Content-Type\u0027: \u0027application/json\u0027 },\n        body: JSON.stringify({\n          message: userText,\n          productContext: activeProduct\n        })\n      });\n\n      if (!res.ok) throw new Error(\u0027Koneksi server gagal\u0027);\n      const data \u003d await res.json();\n\n      setMessages((prev) \u003d\u003e [\n        ...prev, \n        { sender: \u0027assistant\u0027, text: data.reply, isDemo: data.isDemo }\n      ]);\n    } catch (err) {\n      // Fallback deterministik lokal jika server belum jalan\n      setMessages((prev) \u003d\u003e [\n        ...prev,\n        {\n          sender: \u0027assistant\u0027,\n          text: `[RESPON DEMO OFFLINE]: Jika HPP Anda Rp ${activeProduct.cogsPrice.toLocaleString(\u0027id-ID\u0027)} dan Anda menargetkan laba bersih 20%, harga jual minimum yang disarankan setelah memperhitungkan fee marketplace 6.5% dan operasional adalah sekitar Rp ${Math.round(activeProduct.cogsPrice * 1.35).toLocaleString(\u0027id-ID\u0027)}. Pastikan melakukan uji coba 20 pcs sebelum restock skala besar.`,\n          isDemo: true\n        }\n      ]);\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  return (\n    \u003cdiv className\u003d\"max-w-4xl mx-auto h-[78vh] flex flex-col bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm\"\u003e\n      \u003cdiv className\u003d\"p-4 bg-slate-900 text-white flex justify-between items-center\"\u003e\n        \u003cdiv\u003e\n          \u003ch3 className\u003d\"font-semibold text-sm\"\u003eKonsultasi Bisnis: {activeProduct.name}\u003c/h3\u003e\n          \u003cp className\u003d\"text-xs text-slate-400\"\u003eKonteks HPP: Rp {activeProduct.cogsPrice.toLocaleString(\u0027id-ID\u0027)} | Jual: Rp {activeProduct.sellingPrice.toLocaleString(\u0027id-ID\u0027)}\u003c/p\u003e\n        \u003c/div\u003e\n      \u003c/div\u003e\n\n      \u003cdiv className\u003d\"flex-1 overflow-y-auto p-4 space-y-4\"\u003e\n        {messages.map((m, idx) \u003d\u003e (\n          \u003cdiv key\u003d{idx} className\u003d{`flex gap-3 ${m.sender \u003d\u003d\u003d \u0027user\u0027 ? \u0027justify-end\u0027 : \u0027justify-start\u0027}`}\u003e\n            {m.sender \u003d\u003d\u003d \u0027assistant\u0027 \u0026\u0026 (\n              \u003cdiv className\u003d\"w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0\"\u003e\n                \u003cBot size\u003d{16} /\u003e\n              \u003c/div\u003e\n            )}\n            \u003cdiv className\u003d{`max-w-lg p-3.5 rounded-xl text-sm whitespace-pre-wrap leading-relaxed ${\n              m.sender \u003d\u003d\u003d \u0027user\u0027 ? \u0027bg-blue-600 text-white\u0027 : \u0027bg-slate-100 text-slate-800\u0027\n            }`}\u003e\n              {m.text}\n              {m.isDemo \u0026\u0026 (\n                \u003cdiv className\u003d\"mt-2 text-[10px] text-amber-700 bg-amber-100/70 p-1 rounded font-medium\"\u003e\n                  Informasi kalkulasi offline/demo\n                \u003c/div\u003e\n              )}\n            \u003c/div\u003e\n            {m.sender \u003d\u003d\u003d \u0027user\u0027 \u0026\u0026 (\n              \u003cdiv className\u003d\"w-8 h-8 rounded-full bg-slate-800 text-white flex items-center justify-center shrink-0\"\u003e\n                \u003cUser size\u003d{16} /\u003e\n              \u003c/div\u003e\n            )}\n          \u003c/div\u003e\n        ))}\n        {loading \u0026\u0026 \u003cdiv className\u003d\"text-xs text-slate-400 italic\"\u003eMenganalisis data produk...\u003c/div\u003e}\n      \u003c/div\u003e\n\n      \u003cdiv className\u003d\"p-3 border-t border-slate-200 flex gap-2\"\u003e\n        \u003cinput\n          type\u003d\"text\"\n          value\u003d{inputMsg}\n          placeholder\u003d\"Tanyakan analisis harga, risiko stok, atau simulasi modal...\"\n          onChange\u003d{(e) \u003d\u003e setInputMsg(e.target.value)}\n          onKeyDown\u003d{(e) \u003d\u003e e.key \u003d\u003d\u003d \u0027Enter\u0027 \u0026\u0026 sendMessage()}\n          className\u003d\"flex-1 border rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600\"\n        /\u003e\n        \u003cbutton\n          onClick\u003d{sendMessage}\n          disabled\u003d{loading}\n          className\u003d\"px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition\"\n        \u003e\n          \u003cSend size\u003d{16} /\u003e\n        \u003c/button\u003e\n      \u003c/div\u003e\n    \u003c/div\u003e\n  );\n}\n```\n\n### Halaman Dashboard Ringkasan (`client/src/pages/DashboardPage.tsx`)\n```tsx\nimport React from \u0027react\u0027;\nimport { ProductItem } from \u0027../types\u0027;\nimport { TrendingUp, AlertTriangle, PackageCheck, Wallet } from \u0027lucide-react\u0027;\n\nexport default function DashboardPage({ \n  products, \n  onSelectProduct \n}: { \n  products: ProductItem[]; \n  onSelectProduct: (p: ProductItem) \u003d\u003e void;\n}) {\n  const avgScore \u003d Math.round(products.reduce((acc, p) \u003d\u003e acc + p.score, 0) / products.length);\n  const totalStockCapital \u003d products.reduce((acc, p) \u003d\u003e acc + (p.cogsPrice * p.stockQty), 0);\n\n  return (\n    \u003cdiv className\u003d\"space-y-6\"\u003e\n      {/* Metric Cards */}\n      \u003cdiv className\u003d\"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4\"\u003e\n        \u003cdiv className\u003d\"bg-white p-5 rounded-xl border border-slate-200\"\u003e\n          \u003cdiv className\u003d\"flex items-center justify-between text-slate-500\"\u003e\n            \u003cspan className\u003d\"text-xs font-semibold uppercase\"\u003eProduk Diteliti\u003c/span\u003e\n            \u003cPackageCheck size\u003d{18} className\u003d\"text-blue-600\" /\u003e\n          \u003c/div\u003e\n          \u003cdiv className\u003d\"text-2xl font-bold text-slate-900 mt-2\"\u003e{products.length}\u003c/div\u003e\n          \u003cspan className\u003d\"text-xs text-slate-400\"\u003eKandidat tersimpan\u003c/span\u003e\n        \u003c/div\u003e\n\n        \u003cdiv className\u003d\"bg-white p-5 rounded-xl border border-slate-200\"\u003e\n          \u003cdiv className\u003d\"flex items-center justify-between text-slate-500\"\u003e\n            \u003cspan className\u003d\"text-xs font-semibold uppercase\"\u003eRata-rata Skor AI\u003c/span\u003e\n            \u003cTrendingUp size\u003d{18} className\u003d\"text-green-600\" /\u003e\n          \u003c/div\u003e\n          \u003cdiv className\u003d\"text-2xl font-bold text-slate-900 mt-2\"\u003e{avgScore} / 100\u003c/div\u003e\n          \u003cspan className\u003d\"text-xs text-green-600 font-medium\"\u003eKategori Kelayakan Sedang\u003c/span\u003e\n        \u003c/div\u003e\n\n        \u003cdiv className\u003d\"bg-white p-5 rounded-xl border border-slate-200\"\u003e\n          \u003cdiv className\u003d\"flex items-center justify-between text-slate-500\"\u003e\n            \u003cspan className\u003d\"text-xs font-semibold uppercase\"\u003eTotal Modal Tertahan\u003c/span\u003e\n            \u003cWallet size\u003d{18} className\u003d\"text-amber-600\" /\u003e\n          \u003c/div\u003e\n          \u003cdiv className\u003d\"text-2xl font-bold text-slate-900 mt-2\"\u003e\n            Rp {totalStockCapital.toLocaleString(\u0027id-ID\u0027)}\n          \u003c/div\u003e\n          \u003cspan className\u003d\"text-xs text-slate-400\"\u003eBerdasarkan stok rencana\u003c/span\u003e\n        \u003c/div\u003e\n\n        \u003cdiv className\u003d\"bg-white p-5 rounded-xl border border-slate-200\"\u003e\n          \u003cdiv className\u003d\"flex items-center justify-between text-slate-500\"\u003e\n            \u003cspan className\u003d\"text-xs font-semibold uppercase\"\u003ePerhatian Khusus\u003c/span\u003e\n            \u003cAlertTriangle size\u003d{18} className\u003d\"text-red-600\" /\u003e\n          \u003c/div\u003e\n          \u003cdiv className\u003d\"text-2xl font-bold text-slate-900 mt-2\"\u003e1 Produk\u003c/div\u003e\n          \u003cspan className\u003d\"text-xs text-red-600\"\u003eMargin tertekan ads\u003c/span\u003e\n        \u003c/div\u003e\n      \u003c/div\u003e\n\n      {/* Tabel Produk */}\n      \u003cdiv className\u003d\"bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm\"\u003e\n        \u003cdiv className\u003d\"p-4 border-b border-slate-200 flex justify-between items-center\"\u003e\n          \u003ch3 className\u003d\"font-semibold text-slate-800 text-sm\"\u003eDaftar Produk Riset\u003c/h3\u003e\n          \u003cspan className\u003d\"text-xs text-slate-500\"\u003eKlik baris untuk membuka kalkulator detail\u003c/span\u003e\n        \u003c/div\u003e\n        \u003ctable className\u003d\"w-full text-left text-sm\"\u003e\n          \u003cthead className\u003d\"bg-slate-50 text-slate-500 text-xs uppercase font-medium\"\u003e\n            \u003ctr\u003e\n              \u003cth className\u003d\"py-3 px-4\"\u003eNama Produk\u003c/th\u003e\n              \u003cth className\u003d\"py-3 px-4\"\u003eMarketplace\u003c/th\u003e\n              \u003cth className\u003d\"py-3 px-4\"\u003eHPP\u003c/th\u003e\n              \u003cth className\u003d\"py-3 px-4\"\u003eTarget Jual\u003c/th\u003e\n              \u003cth className\u003d\"py-3 px-4\"\u003eAI Score\u003c/th\u003e\n              \u003cth className\u003d\"py-3 px-4\"\u003eStatus\u003c/th\u003e\n            \u003c/tr\u003e\n          \u003c/thead\u003e\n          \u003ctbody className\u003d\"divide-y divide-slate-100\"\u003e\n            {products.map((prod) \u003d\u003e (\n              \u003ctr \n                key\u003d{prod.id} \n                onClick\u003d{() \u003d\u003e onSelectProduct(prod)}\n                className\u003d\"hover:bg-slate-50 cursor-pointer transition\"\n              \u003e\n                \u003ctd className\u003d\"py-3.5 px-4 font-medium text-slate-900\"\u003e{prod.name}\u003c/td\u003e\n                \u003ctd className\u003d\"py-3.5 px-4 text-slate-600\"\u003e{prod.marketplace}\u003c/td\u003e\n                \u003ctd className\u003d\"py-3.5 px-4 text-slate-600\"\u003eRp {prod.cogsPrice.toLocaleString(\u0027id-ID\u0027)}\u003c/td\u003e\n                \u003ctd className\u003d\"py-3.5 px-4 text-slate-600\"\u003eRp {prod.sellingPrice.toLocaleString(\u0027id-ID\u0027)}\u003c/td\u003e\n                \u003ctd className\u003d\"py-3.5 px-4 font-semibold text-blue-600\"\u003e{prod.score}/100\u003c/td\u003e\n                \u003ctd className\u003d\"py-3.5 px-4\"\u003e\n                  \u003cspan className\u003d{`px-2.5 py-1 rounded-full text-xs font-medium ${\n                    prod.score \u003e\u003d 75 ? \u0027bg-green-100 text-green-700\u0027 : \u0027bg-amber-100 text-amber-700\u0027\n                  }`}\u003e\n                    {prod.scoreStatus}\n                  \u003c/span\u003e\n                \u003c/td\u003e\n              \u003c/tr\u003e\n            ))}\n          \u003c/tbody\u003e\n        \u003c/table\u003e\n      \u003c/div\u003e\n    \u003c/div\u003e\n  );\n}\n```\n\n### Halaman AI Product Research (`client/src/pages/ResearchPage.tsx`)\n```tsx\nimport React, { useState } from \u0027react\u0027;\nimport { ProductItem } from \u0027../types\u0027;\nimport { Sparkles, PlusCircle } from \u0027lucide-react\u0027;\n\nexport default function ResearchPage({ onAddProduct }: { onAddProduct: (prod: ProductItem) \u003d\u003e void }) {\n  const [category, setCategory] \u003d useState(\u0027Peralatan Dapur\u0027);\n  const [marketplace, setMarketplace] \u003d useState(\u0027Shopee\u0027);\n  const [budget, setBudget] \u003d useState(\u00275000000\u0027);\n  const [loading, setLoading] \u003d useState(false);\n  const [ideas, setIdeas] \u003d useState\u003cany[]\u003e([]);\n\n  const handleSearch \u003d async () \u003d\u003e {\n    setLoading(true);\n    try {\n      const res \u003d await fetch(\u0027http://localhost:5000/api/ai/ideate\u0027, {\n        method: \u0027POST\u0027,\n        headers: { \u0027Content-Type\u0027: \u0027application/json\u0027 },\n        body: JSON.stringify({ category, marketplace, budget: Number(budget) })\n      });\n      const data \u003d await res.json();\n      setIdeas(data.ideas || []);\n    } catch {\n      // Fallback jika backend offline\n      setIdeas([\n        {\n          name: \"Kotak Bumbu Putar 4-in-1 (Demo)\",\n          category: category,\n          reason: \"Format konten TikTok resep masakan viral sering menonjolkan kerapian meja saji.\",\n          riskNotes: \"Bahan akrilik rentan pecah saat ekspedisi reguler.\",\n          missingData: \"Biaya bubble wrap ekstra tebal per pcs.\"\n        }\n      ]);\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  const saveCandidate \u003d (idea: any) \u003d\u003e {\n    const newProduct: ProductItem \u003d {\n      id: \"prod-\" + Date.now(),\n      name: idea.name,\n      category: idea.category,\n      marketplace,\n      cogsPrice: 20000,\n      sellingPrice: 45000,\n      weightGrams: 300,\n      stockQty: 50,\n      score: 72,\n      scoreStatus: \u0027Layak Diuji\u0027,\n      isVerified: false,\n      notes: idea.reason\n    };\n    onAddProduct(newProduct);\n    alert(`\"${idea.name}\" berhasil ditambahkan ke daftar riset produk Anda.`);\n  };\n\n  return (\n    \u003cdiv className\u003d\"max-w-4xl mx-auto space-y-6\"\u003e\n      \u003cdiv\u003e\n        \u003ch2 className\u003d\"text-2xl font-bold text-slate-900\"\u003eAI Product Research Engine\u003c/h2\u003e\n        \u003cp className\u003d\"text-sm text-slate-500\"\u003eMencari celah produk potensial dengan validasi risiko stok.\u003c/p\u003e\n      \u003c/div\u003e\n\n      \u003cdiv className\u003d\"bg-white p-6 border rounded-xl shadow-sm grid grid-cols-1 md:grid-cols-3 gap-4\"\u003e\n        \u003cdiv\u003e\n          \u003clabel className\u003d\"text-xs font-semibold text-slate-600\"\u003eKategori Sasaran\u003c/label\u003e\n          \u003cinput\n            type\u003d\"text\"\n            value\u003d{category}\n            onChange\u003d{(e) \u003d\u003e setCategory(e.target.value)}\n            className\u003d\"w-full mt-1 px-3 py-2 border rounded-lg text-sm\"\n          /\u003e\n        \u003c/div\u003e\n        \u003cdiv\u003e\n          \u003clabel className\u003d\"text-xs font-semibold text-slate-600\"\u003eMarketplace Utama\u003c/label\u003e\n          \u003cselect\n            value\u003d{marketplace}\n            onChange\u003d{(e) \u003d\u003e setMarketplace(e.target.value)}\n            className\u003d\"w-full mt-1 px-3 py-2 border rounded-lg text-sm bg-white\"\n          \u003e\n            \u003coption value\u003d\"Shopee\"\u003eShopee Indonesia\u003c/option\u003e\n            \u003coption value\u003d\"TikTok Shop\"\u003eTikTok Shop\u003c/option\u003e\n            \u003coption value\u003d\"Tokopedia\"\u003eTokopedia\u003c/option\u003e\n          \u003c/select\u003e\n        \u003c/div\u003e\n        \u003cdiv\u003e\n          \u003clabel className\u003d\"text-xs font-semibold text-slate-600\"\u003eAlokasi Modal Awal (Rp)\u003c/label\u003e\n          \u003cinput\n            type\u003d\"number\"\n            value\u003d{budget}\n            onChange\u003d{(e) \u003d\u003e setBudget(e.target.value)}\n            className\u003d\"w-full mt-1 px-3 py-2 border rounded-lg text-sm\"\n          /\u003e\n        \u003c/div\u003e\n        \u003cdiv className\u003d\"md:col-span-3\"\u003e\n          \u003cbutton\n            onClick\u003d{handleSearch}\n            disabled\u003d{loading}\n            className\u003d\"w-full bg-blue-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-blue-700 flex items-center justify-center gap-2 transition\"\n          \u003e\n            \u003cSparkles size\u003d{16} /\u003e {loading ? \"Menganalisis Parameter Pasar...\" : \"Dapatkan Hipotesis Produk\"}\n          \u003c/button\u003e\n        \u003c/div\u003e\n      \u003c/div\u003e\n\n      {ideas.length \u003e 0 \u0026\u0026 (\n        \u003cdiv className\u003d\"space-y-4\"\u003e\n          \u003ch3 className\u003d\"font-semibold text-slate-800 text-sm\"\u003eRekomendasi Kandidat Produk:\u003c/h3\u003e\n          {ideas.map((item, idx) \u003d\u003e (\n            \u003cdiv key\u003d{idx} className\u003d\"bg-white border rounded-xl p-5 shadow-sm space-y-3\"\u003e\n              \u003cdiv className\u003d\"flex justify-between items-start\"\u003e\n                \u003cdiv\u003e\n                  \u003ch4 className\u003d\"font-bold text-slate-900 text-base\"\u003e{item.name}\u003c/h4\u003e\n                  \u003cspan className\u003d\"text-xs text-blue-600 font-medium\"\u003e{item.category}\u003c/span\u003e\n                \u003c/div\u003e\n                \u003cbutton\n                  onClick\u003d{() \u003d\u003e saveCandidate(item)}\n                  className\u003d\"flex items-center gap-1.5 text-xs bg-slate-900 text-white px-3 py-1.5 rounded-lg hover:bg-slate-800\"\n                \u003e\n                  \u003cPlusCircle size\u003d{14} /\u003e Simpan ke Riset\n                \u003c/button\u003e\n              \u003c/div\u003e\n\n              \u003cdiv className\u003d\"text-sm text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-100\"\u003e\n                \u003cstrong\u003eAlasan Kelayakan:\u003c/strong\u003e {item.reason}\n              \u003c/div\u003e\n\n              \u003cdiv className\u003d\"grid grid-cols-1 md:grid-cols-2 gap-2 text-xs\"\u003e\n                \u003cdiv className\u003d\"text-red-700 bg-red-50 p-2.5 rounded border border-red-100\"\u003e\n                  \u003cstrong\u003eTantangan \u0026 Risiko:\u003c/strong\u003e {item.riskNotes}\n                \u003c/div\u003e\n                \u003cdiv className\u003d\"text-amber-800 bg-amber-50 p-2.5 rounded border border-amber-100\"\u003e\n                  \u003cstrong\u003eData Masih Diperlukan:\u003c/strong\u003e {item.missingData}\n                \u003c/div\u003e\n              \u003c/div\u003e\n            \u003c/div\u003e\n          ))}\n        \u003c/div\u003e\n      )}\n    \u003c/div\u003e\n  );\n}\n```\n\n---\n\n## 6. Environment Variables (`.env.example`)\n\n### File `.env` Server (`server/.env.example`)\n```ini\nPORT\u003d5000\nCLIENT_URL\u003dhttp://localhost:5173\n\n# Dapatkan dari Google AI Studio (https://aistudio.google.com/)\nGEMINI_API_KEY\u003dyour_gemini_api_key_here\n\n# Dapatkan dari Dashboard Supabase \u003e Project Settings \u003e API\nSUPABASE_URL\u003dhttps://your-project.supabase.co\nSUPABASE_SERVICE_ROLE_KEY\u003dyour_supabase_service_role_key\n```\n\n### File `.env` Client (`client/.env.example`)\n```ini\nVITE_SUPABASE_URL\u003dhttps://your-project.supabase.co\nVITE_SUPABASE_ANON_KEY\u003dyour_supabase_anon_key\nVITE_API_URL\u003dhttp://localhost:5000/api\n```\n\n---\n\n## 7. Panduan Instalasi \u0026 Menjalankan Aplikasi\n\n### Langkah 1: Klon \u0026 Persiapan Direktori\n```bash\ngit clone https://github.com/username/produklaku-ai.git\ncd produklaku-ai\n```\n\n### Langkah 2: Setup Server Backend\n```bash\ncd server\nnpm install\ncp .env.example .env\n# Edit .env dan isi GEMINI_API_KEY Anda jika ingin respon AI aktif (opsional untuk demo)\nnpm run dev\n```\n*Server aktif di: `http://localhost:5000`*\n\n### Langkah 3: Setup Frontend Client\nBuka terminal baru:\n```bash\ncd client\nnpm install\nnpm run dev\n```\n*Aplikasi frontend aktif di: `http://localhost:5173`*\n\nAplikasi otomatis berjalan dalam **Mode Demo** jika API Key belum diisi, sehingga seluruh kalkulator laba, simulasi stok, dan alur perancangan produk dapat diuji langsung tanpa kendala koneksi.\n\n---\n\n## 8. Verifikasi \u0026 Pengujian Logika Matematis\n\nUntuk membuktikan keandalan kalkulator finansial, Anda dapat membuat file unit test sederhana di `client/src/lib/calculator.test.ts` atau menjalankannya langsung di console browser:\n\n```typescript\nimport { calculateUnitEconomics } from \u0027./calculator\u0027;\n\n// Simulasi Pengujian:\n// HPP \u003d Rp 20.000, Harga Jual \u003d Rp 50.000, Fee Marketplace \u003d 6.5%, \n// Ongkir Subsidi \u003d Rp 1.500, Packing \u003d Rp 2.000, Ads \u003d Rp 5.000, Ops \u003d Rp 1.000, Retur \u003d 2%\nconst result \u003d calculateUnitEconomics({\n  cogsPrice: 20000,\n  sellingPrice: 50000,\n  marketplaceFeePercent: 6.5,\n  serviceFeeFixed: 1000,\n  packagingCost: 2000,\n  shippingSubsidy: 1500,\n  adCostPerOrder: 5000,\n  operationalPerUnit: 1000,\n  returnRatePercent: 2,\n  taxPercent: 0.5\n});\n\nconsole.assert(result.totalCostPerUnit \u003e 20000, \"Total biaya harus lebih tinggi dari HPP\");\nconsole.assert(result.netProfitPerUnit \u003d\u003d\u003d (50000 - result.totalCostPerUnit), \"Laba bersih harus selaras dengan selisih harga\");\nconsole.log(\"Pengujian Matematika Laba Bersih: SUKSES\", result);\n```\n\n---\n\n## 9. Keterbatasan, Disclaimer Hukum \u0026 Roadmap\n\n### Keterbatasan Sistem MVP (Tahap 1)\n1. **Tidak Ada Web Scraping Ilegal:** ProdukLaku AI tidak mengambil paksa data real-time dari Shopee/TikTok/Tokopedia tanpa izin resmi karena melanggar *Terms of Service* platform dan rentan pemblokiran IP. Seluruh angka kompetitor dimasukkan secara manual atau via unggah CSV oleh pengguna.\n2. **Ketergantungan Data Input:** Akurasi skor kelayakan produk 100% bergantung pada kejujuran input biaya pengemasan, HPP supplier sebenarnya, dan target iklan yang diinputkan pengguna.\n3. **Bukan Rekomendasi Finansial Mutlak:** AI Product Score ditujukan sebagai alat saring awal (*decision-support filter*), bukan jaminan kesuksesan usaha.\n\n### Roadmap Pengembangan Selanjutnya\n\n```text\n+--------------------------------------------------------------------------+\n| TAHAP 1: MVP (Saat Ini)                                                  |\n| - Deterministic Unit Economics Engine (Bebas Halusinasi)                 |\n| - Algoritma AI Product Scoring 0-100 Berbobot                            |\n| - Simulasi Sensitivitas Modal 3 Skenario (Pesimistis, Normal, Optimis)   |\n| - Asisten Chatbot Gemini 2.5 Flash dengan Konteks Produk Lokal           |\n+--------------------------------------------------------------------------+\n                                     |\n                                     v\n+--------------------------------------------------------------------------+\n| TAHAP 2: Pengembangan Lanjutan                                           |\n| - Parser Unggah File CSV Data Kompetitor \u0026 Transaksi Toko                |\n| - Supplier Matrix Comparison (Evaluasi Biaya Kirim Gudang \u0026 MOQ)         |\n| - Ekspor Dokumen Laporan PDF Ringkasan Kelayakan Produk                  |\n| - Sinkronisasi Multi-Device menggunakan Supabase PostgreSQL Auth         |\n+--------------------------------------------------------------------------+\n                                     |\n                                     v\n+--------------------------------------------------------------------------+\n| TAHAP 3: Skalabilitas SaaS Komersial                                     |\n| - Integrasi API Mitra Resmi Marketplace (Shopee Open Platform)           |\n| - Sistem Billing \u0026 Langganan Midtrans / Xendit (IDR Gateway)             |\n| - Notifikasi Kuota Pemakaian Token Gemini                                |\n| - Audit Jejak Historis Perubahan Harga Bahan Baku Supplier               |\n+--------------------------------------------------------------------------+\n```",
+      "role": "model",
+      "finishReason": "STOP",
+      "tokenCount": 17073,
+      "parts": [{
+        "text": "Berikut adalah cetak biru teknis lengkap dan implementasi MVP fungsional untuk **ProdukLaku AI** (*\""
+      }, {
+        "text": "Riset Lebih Cerdas, Jualan Lebih Untung\"*). Aplikasi ini dirancang modular: mendukung mode demo offline (*zero"
+      }, {
+        "text": "-config*) dan mode produksi terhubung Supabase \u0026 Google Gemini API.\n\n---\n\n### Daftar Isi\n1. **Struktur Direkt"
+      }, {
+        "text": "ori Proyek**\n2. **Skema Database PostgreSQL (Supabase DDL \u0026 RLS)**\n3."
+      }, {
+        "text": " **Core Engine: Kalkulator Finansial \u0026 Scoring Deterministik (TypeScript)**\n4. **Backend Server ("
+      }, {
+        "text": "Node.js/Express + Supabase Auth + Gemini Proxy)**\n5. **Frontend Core (Vite + React +"
+      }, {
+        "text": " Tailwind CSS + Dashboard \u0026 Modul MVP)**\n6. **Data Demo \u0026 Mock Store**\n7. **Environment Variables ("
+      }, {
+        "text": "`.env.example`)**\n8. **Panduan Instalasi \u0026 Menjalankan Aplikasi**\n9. **K"
+      }, {
+        "text": "eterbatasan, Disclaimer Hukum \u0026 Roadmap Tahap 2–3**\n\n---\n\n## 1. Struktur Direktori"
+      }, {
+        "text": " Proyek\n\nArsitektur monorepo sederhana (*client-server*) agar mudah diuji secara lokal dan dideploy ke Vercel/"
+      }, {
+        "text": "Render.\n\n```text\nproduklaku-ai/\n├── package.json\n├── .env.example\n├── README"
+      }, {
+        "text": ".md\n├── server/\n│   ├── package.json\n│   ├── tsconfig.json\n│   ├── src/\n│"
+      }, {
+        "text": "   │   ├── index.ts\n│   │   ├── middleware/\n│   │   │   ├── auth"
+      }, {
+        "text": ".ts\n│   │   │   └── rateLimiter.ts\n│   │   ├── routes/\n"
+      }, {
+        "text": "│   │   │   ├── ai.ts\n│   │   │   ├── products.ts\n│   "
+      }, {
+        "text": "│   │   └── competitors.ts\n│   │   ├── services/\n│   │   │   ├── gemini"
+      }, {
+        "text": ".ts\n│   │   │   └── supabase.ts\n│   │   └── utils/\n│   "
+      }, {
+        "text": "│       └── validator.ts\n├── client/\n│   ├── package.json\n│   ├── tsconfig.json\n│   "
+      }, {
+        "text": "├── vite.config.ts\n│   ├── tailwind.config.js\n│   ├── postcss.config.js\n│   "
+      }, {
+        "text": "├── index.html\n│   ├── src/\n│   │   ├── App.tsx\n│   │   ├── main.tsx\n"
+      }, {
+        "text": "│   │   ├── index.css\n│   │   ├── components/\n│   │   │   ├──"
+      }, {
+        "text": " layout/\n│   │   │   │   ├── Sidebar.tsx\n│   │   │   │   ├──"
+      }, {
+        "text": " Header.tsx\n│   │   │   │   └── DemoBadge.tsx\n│   │   │   ├── ui"
+      }, {
+        "text": "/\n│   │   │   │   ├── Card.tsx\n│   │   │   │   ├──"
+      }, {
+        "text": " Button.tsx\n│   │   │   │   ├── Input.tsx\n│   │   │   │"
+      }, {
+        "text": "   └── Modal.tsx\n│   │   ├── pages/\n│   │   │   ├── DashboardPage.tsx\n│   │"
+      }, {
+        "text": "   │   ├── ResearchPage.tsx\n│   │   │   ├── CalculatorPage.tsx\n│   │"
+      }, {
+        "text": "   │   ├── SimulationPage.tsx\n│   │   │   ├── CompetitorPage.tsx\n│   "
+      }, {
+        "text": "│   │   ├── SupplierPage.tsx\n│   │   │   └── ChatbotPage.tsx\n│   "
+      }, {
+        "text": "│   ├── lib/\n│   │   │   ├── calculator.ts      \u003c-- Mesin hitung matematis m"
+      }, {
+        "text": "urni\n│   │   │   ├── scoring.ts         \u003c-- Algoritma Product Score 0-100\n│"
+      }, {
+        "text": "   │   │   ├── mockData.ts        \u003c-- Data lokal berlabel demo\n│   │   │   └──"
+      }, {
+        "text": " supabaseClient.ts\n│   │   └── types/\n│   │       └── index.ts\n```\n\n---\n\n## "
+      }, {
+        "text": "2. Skema Database PostgreSQL (Supabase DDL \u0026 RLS)\n\nJalankan script SQL berikut pada **Supabase SQL"
+      }, {
+        "text": " Editor**. Skema ini mencakup Row Level Security (RLS) terisolasi per akun.\n\n```sql\n"
+      }, {
+        "text": "-- Aktifkan ekstensi UUID\nCREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";\n\n-- 1. TABEL PRO"
+      }, {
+        "text": "FIL PENGGUNA\nCREATE TABLE public.profiles (\n    id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE"
+      }, {
+        "text": ",\n    full_name TEXT,\n    business_name TEXT,\n    created_at TIMESTAMP WITH TIME ZONE"
+      }, {
+        "text": " DEFAULT TIMEZONE(\u0027utc\u0027, NOW()) NOT NULL\n);\n\n-- 2. TABEL PRODUK\nCREATE TABLE public."
+      }, {
+        "text": "products (\n    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\n    user_id UUID REFERENCES auth"
+      }, {
+        "text": ".users(id) ON DELETE CASCADE NOT NULL,\n    name TEXT NOT NULL,\n    category TEXT NOT NULL,\n    target_"
+      }, {
+        "text": "marketplace TEXT NOT NULL,\n    weight_grams NUMERIC DEFAULT 0,\n    cogs_price NUMERIC NOT"
+      }, {
+        "text": " NULL,              -- Harga Beli Supplier\n    target_selling_price NUMERIC NOT NULL,    -- Target Harga Jual\n    marketplace"
+      }, {
+        "text": "_fee_percent NUMERIC DEFAULT 6.5,\n    ad_cost_per_order NUMERIC DEFAULT 0,\n    "
+      }, {
+        "text": "shipping_subsidy NUMERIC DEFAULT 0,\n    packaging_cost NUMERIC DEFAULT 2000,\n    operational"
+      }, {
+        "text": "_cost NUMERIC DEFAULT 1000,\n    return_rate_percent NUMERIC DEFAULT 2.0,\n    score"
+      }, {
+        "text": " NUMERIC(5,2) DEFAULT NULL,\n    score_breakdown JSONB DEFAULT \u0027{}\u0027::jsonb,\n    "
+      }, {
+        "text": "is_verified_data BOOLEAN DEFAULT FALSE,\n    notes TEXT,\n    created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE(\u0027"
+      }, {
+        "text": "utc\u0027, NOW()) NOT NULL,\n    updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE(\u0027utc\u0027, NOW())"
+      }, {
+        "text": " NOT NULL\n);\n\n-- 3. TABEL SUPPLIER\nCREATE TABLE public.suppliers (\n    id UUID"
+      }, {
+        "text": " PRIMARY KEY DEFAULT uuid_generate_v4(),\n    user_id UUID REFERENCES auth.users(id) ON"
+      }, {
+        "text": " DELETE CASCADE NOT NULL,\n    product_id UUID REFERENCES public.products(id) ON DELETE SET NULL,\n"
+      }, {
+        "text": "    name TEXT NOT NULL,\n    contact TEXT,\n    location TEXT,\n    price_per_unit NUMERIC NOT NULL,\n"
+      }, {
+        "text": "    moq INTEGER DEFAULT 1,\n    shipping_cost_estimate NUMERIC DEFAULT 0,\n    lead"
+      }, {
+        "text": "_time_days INTEGER DEFAULT 3,\n    payment_terms TEXT,\n    reliability_rating INTEGER CHECK (reliability_"
+      }, {
+        "text": "rating BETWEEN 1 AND 5),\n    created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE(\u0027utc\u0027, NOW()) NOT"
+      }, {
+        "text": " NULL\n);\n\n-- 4. TABEL KOMPETITOR\nCREATE TABLE public.competitors (\n    id"
+      }, {
+        "text": " UUID PRIMARY KEY DEFAULT uuid_generate_v4(),\n    user_id UUID REFERENCES auth.users(id)"
+      }, {
+        "text": " ON DELETE CASCADE NOT NULL,\n    product_id UUID REFERENCES public.products(id) ON DELETE CASCADE NOT NULL,\n    competitor"
+      }, {
+        "text": "_name TEXT NOT NULL,\n    selling_price NUMERIC NOT NULL,\n    estimated_sales_monthly INTEGER"
+      }, {
+        "text": " DEFAULT 0,\n    rating NUMERIC(2,1) DEFAULT 0.0,\n    advantages TEXT"
+      }, {
+        "text": ",\n    weaknesses TEXT,\n    source_url TEXT,\n    data_date DATE DEFAULT CURRENT_DATE,\n    "
+      }, {
+        "text": "created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE(\u0027utc\u0027, NOW()) NOT NULL\n);\n\n-- 5."
+      }, {
+        "text": " TABEL RIWAYAT CHATBOT\nCREATE TABLE public.chat_messages (\n    id UUID PRIMARY KEY DEFAULT uuid_generate"
+      }, {
+        "text": "_v4(),\n    user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,\n"
+      }, {
+        "text": "    product_id UUID REFERENCES public.products(id) ON DELETE SET NULL,\n    role TEXT CHECK (role"
+      }, {
+        "text": " IN (\u0027user\u0027, \u0027assistant\u0027)) NOT NULL,\n    content TEXT NOT NULL,\n    created_at TIMESTAMP WITH"
+      }, {
+        "text": " TIME ZONE DEFAULT TIMEZONE(\u0027utc\u0027, NOW()) NOT NULL\n);\n\n-- ROW LEVEL SECURITY (RLS) SETUP"
+      }, {
+        "text": "\nALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;\nALTER TABLE public.products ENABLE ROW LEVEL SECURITY;\nALTER TABLE public."
+      }, {
+        "text": "suppliers ENABLE ROW LEVEL SECURITY;\nALTER TABLE public.competitors ENABLE ROW LEVEL SECURITY;\nALTER TABLE public.chat"
+      }, {
+        "text": "_messages ENABLE ROW LEVEL SECURITY;\n\nCREATE POLICY \"Users can only access own profile\" ON public.profiles\n    FOR ALL USING (auth"
+      }, {
+        "text": ".uid() \u003d id);\n\nCREATE POLICY \"Users can only access own products\" ON public.products\n    FOR"
+      }, {
+        "text": " ALL USING (auth.uid() \u003d user_id);\n\nCREATE POLICY \"Users can only access own suppliers\" ON"
+      }, {
+        "text": " public.suppliers\n    FOR ALL USING (auth.uid() \u003d user_id);\n\nCREATE POLICY \"Users can"
+      }, {
+        "text": " only access own competitors\" ON public.competitors\n    FOR ALL USING (auth.uid() \u003d user_id"
+      }, {
+        "text": ");\n\nCREATE POLICY \"Users can only access own chat messages\" ON public.chat_messages\n    FOR ALL USING"
+      }, {
+        "text": " (auth.uid() \u003d user_id);\n```\n\n---\n\n## 3. Core Engine: Kalkulator"
+      }, {
+        "text": " Finansial \u0026 Scoring Deterministik\n\nSimpan modul ini di `client/src/lib/calculator.ts` dan"
+      }, {
+        "text": " `client/src/lib/scoring.ts`. Seluruh kalkulasi bersifat **deterministik matematis**, independ"
+      }, {
+        "text": "en dari respon teks AI.\n\n### `client/src/lib/calculator.ts`\n```typescript\nexport"
+      }, {
+        "text": " interface UnitEconomicsInput {\n  cogsPrice: number;            // Harga Beli/HPP\n  sellingPrice:"
+      }, {
+        "text": " number;         // Harga Jual Konsumen\n  marketplaceFeePercent: number;// Admin Fee (e.g. 6.5%)"
+      }, {
+        "text": "\n  serviceFeeFixed: number;      // Biaya transaksi tetap (e.g. Rp 1.000)\n  "
+      }, {
+        "text": "packagingCost: number;        // Kardus, bubble wrap, lakban\n  shippingSubsidy: number;      "
+      }, {
+        "text": "// Subsidi bebas ongkir seller\n  adCostPerOrder: number;       // Rata-rata budget ads per"
+      }, {
+        "text": " konversi\n  operationalPerUnit: number;   // Gaji/packing fee per unit\n  returnRatePercent: number;    "
+      }, {
+        "text": "// Estimasi barang retur/rusak (e.g. 2%)\n  taxPercent?: number;          "
+      }, {
+        "text": "// PPh Final UMKM 0.5% jika ada\n}\n\nexport interface UnitEconomicsOutput {\n  marketplace"
+      }, {
+        "text": "FeeTotal: number;\n  variableCostsTotal: number;\n  totalCostPerUnit: number;\n  netProfitPer"
+      }, {
+        "text": "Unit: number;\n  netMarginPercent: number;\n  roiPercent: number;\n  breakEvenUnits: ("
+      }, {
+        "text": "fixedCostMonthly: number) \u003d\u003e number;\n}\n\nexport function calculateUnitEconomics(input: UnitEconomicsInput): UnitEconomicsOutput {"
+      }, {
+        "text": "\n  const {\n    cogsPrice,\n    sellingPrice,\n    marketplaceFeePercent,\n    serviceFeeFixed,\n"
+      }, {
+        "text": "    packagingCost,\n    shippingSubsidy,\n    adCostPerOrder,\n    operationalPerUnit,\n"
+      }, {
+        "text": "    returnRatePercent,\n    taxPercent \u003d 0.5,\n  } \u003d input;\n\n  //"
+      }, {
+        "text": " 1. Biaya Marketplace\n  const marketplacePercentageFee \u003d (marketplaceFeePercent / 100) * sellingPrice;"
+      }, {
+        "text": "\n  const marketplaceFeeTotal \u003d marketplacePercentageFee + serviceFeeFixed;\n\n  // 2. Biaya Retur (alok"
+      }, {
+        "text": "asi risiko)\n  const returnRiskAllowance \u003d (returnRatePercent / 100) * (cogsPrice + packaging"
+      }, {
+        "text": "Cost);\n\n  // 3. Pajak UMKM (PP 55/2022: 0.5% dari"
+      }, {
+        "text": " omzet bruto jika berlaku)\n  const taxAmount \u003d (taxPercent / 100) * sellingPrice;\n\n  // "
+      }, {
+        "text": "4. Total Biaya Variabel per Unit di luar HPP\n  const variableCostsTotal \u003d\n    marketplaceFeeTotal +\n"
+      }, {
+        "text": "    packagingCost +\n    shippingSubsidy +\n    adCostPerOrder +\n    operationalPerUnit +\n"
+      }, {
+        "text": "    returnRiskAllowance +\n    taxAmount;\n\n  // 5. Total Beban per Unit\n  const totalCost"
+      }, {
+        "text": "PerUnit \u003d cogsPrice + variableCostsTotal;\n\n  // 6. Laba Bersih \u0026 Margin\n  const netProfit"
+      }, {
+        "text": "PerUnit \u003d sellingPrice - totalCostPerUnit;\n  const netMarginPercent \u003d sellingPrice \u003e 0 ?"
+      }, {
+        "text": " (netProfitPerUnit / sellingPrice) * 100 : 0;\n  const roiPercent \u003d"
+      }, {
+        "text": " totalCostPerUnit \u003e 0 ? (netProfitPerUnit / totalCostPerUnit) * 100 :"
+      }, {
+        "text": " 0;\n\n  return {\n    marketplaceFeeTotal: Math.round(marketplaceFeeTotal),\n    variable"
+      }, {
+        "text": "CostsTotal: Math.round(variableCostsTotal),\n    totalCostPerUnit: Math.round(totalCost"
+      }, {
+        "text": "PerUnit),\n    netProfitPerUnit: Math.round(netProfitPerUnit),\n    netMarginPercent"
+      }, {
+        "text": ": Number(netMarginPercent.toFixed(2)),\n    roiPercent: Number(roiPercent.toFixed(2)),"
+      }, {
+        "text": "\n    breakEvenUnits: (fixedCostMonthly: number) \u003d\u003e {\n      const contributionMargin \u003d sellingPrice - variableCosts"
+      }, {
+        "text": "Total - cogsPrice;\n      if (contributionMargin \u003c\u003d 0) return Infinity; // Tidak pernah impas jika margin"
+      }, {
+        "text": " minus\n      return Math.ceil(fixedCostMonthly / contributionMargin);\n    },\n  };\n}\n"
+      }, {
+        "text": "```\n\n### `client/src/lib/scoring.ts`\n```typescript\nexport interface ScoreInput {\n  net"
+      }, {
+        "text": "MarginPercent: number;\n  capitalRequirement: number;   // Estimasi modal stok batch pertama\n  userAvailable"
+      }, {
+        "text": "Capital: number; // Modal milik penjual\n  stockRiskLevel: \u0027LOW\u0027 | \u0027MEDIUM\u0027 | \u0027HIGH\u0027; //"
+      }, {
+        "text": " Ditentukan dari umur kedaluwarsa, tren cepat musiman, atau barang pecah belah\n  competitionCount:"
+      }, {
+        "text": " number;     // Jumlah kompetitor terdata\n  supplierRating: number;       // 1 - 5\n}\n\nexport interface Score"
+      }, {
+        "text": "Output {\n  score: number;\n  status: \u0027Layak Diuji\u0027 | \u0027Perlu Perbaikan"
+      }, {
+        "text": "\u0027 | \u0027Risiko Tinggi\u0027;\n  breakdown: {\n    marginScore: number;       // Bobot 30%\n"
+      }, {
+        "text": "    stockRiskScore: number;    // Bobot 25%\n    competitionScore: number;  //"
+      }, {
+        "text": " Bobot 20%\n    capitalFitScore: number;   // Bobot 15%\n    supplierScore: number"
+      }, {
+        "text": ";     // Bobot 10%\n  };\n  reasons: string[];\n  caveats: string[];\n}"
+      }, {
+        "text": "\n\nexport function calculateProductScore(input: ScoreInput): ScoreOutput {\n  const reasons: string[] \u003d [];\n  const caveats:"
+      }, {
+        "text": " string[] \u003d [];\n\n  // A. Margin Score (30%)\n  // Standar e-commerce Indonesia: \u003c"
+      }, {
+        "text": "15% (Buruk), 15-25% (Cukup), \u003e30% (S"
+      }, {
+        "text": "angat Baik)\n  let marginScore \u003d 0;\n  if (input.netMarginPercent \u003e\u003d 35) {\n"
+      }, {
+        "text": "    marginScore \u003d 100;\n    reasons.push(\u0027Margin bersih sangat tebal (\u003e35%),"
+      }, {
+        "text": " aman untuk biaya ads marketplace.\u0027);\n  } else if (input.netMarginPercent \u003e\u003d 20) {\n"
+      }, {
+        "text": "    marginScore \u003d 75;\n    reasons.push(\u0027Margin sehat (20-35%), cukup"
+      }, {
+        "text": " menyerap biaya retur dan promo.\u0027);\n  } else if (input.netMarginPercent \u003e\u003d 10) {\n"
+      }, {
+        "text": "    marginScore \u003d 40;\n    caveats.push(\u0027Margin tipis (10-20%). Sangat rentan"
+      }, {
+        "text": " rugi jika ad-cost naik.\u0027);\n  } else {\n    marginScore \u003d 10;\n    cave"
+      }, {
+        "text": "ats.push(\u0027Margin di bawah 10%. Berisiko defisit setelah admin fee platform.\u0027);\n  }\n\n  "
+      }, {
+        "text": "// B. Risiko Stok (25%)\n  let stockRiskScore \u003d 50;\n  if ("
+      }, {
+        "text": "input.stockRiskLevel \u003d\u003d\u003d \u0027LOW\u0027) {\n    stockRiskScore \u003d 100;\n    re"
+      }, {
+        "text": "asons.push(\u0027Risiko penyusutan/kedaluwarsa rendah.\u0027);\n  } else if (input.stockRiskLevel \u003d\u003d\u003d"
+      }, {
+        "text": " \u0027MEDIUM\u0027) {\n    stockRiskScore \u003d 60;\n  } else {\n    stockRiskScore"
+      }, {
+        "text": " \u003d 20;\n    caveats.push(\u0027Risiko stok tinggi (musiman/pecah belah/"
+      }, {
+        "text": "masa simpan pendek).\u0027);\n  }\n\n  // C. Tingkat Persaingan (20%)\n  let"
+      }, {
+        "text": " competitionScore \u003d 50;\n  if (input.competitionCount \u003d\u003d\u003d 0) {\n    competitionScore"
+      }, {
+        "text": " \u003d 50; // Belum ada data\n    caveats.push(\u0027Data kompetitor belum diverifikasi.\u0027);"
+      }, {
+        "text": "\n  } else if (input.competitionCount \u003c\u003d 3) {\n    competitionScore \u003d 90;"
+      }, {
+        "text": "\n    reasons.push(\u0027Sedikit kompetitor terdata, peluang diferensiasi terbuka.\u0027);\n  } else if"
+      }, {
+        "text": " (input.competitionCount \u003c\u003d 10) {\n    competitionScore \u003d 60;\n  } else"
+      }, {
+        "text": " {\n    competitionScore \u003d 30;\n    caveats.push(\u0027Pasar sangat padat (kom"
+      }, {
+        "text": "petitor \u003e 10). Perang harga mungkin terjadi.\u0027);\n  }\n\n  // D. Kebutuhan Modal vs"
+      }, {
+        "text": " Modal Tersedia (15%)\n  let capitalFitScore \u003d 50;\n  const capitalRatio \u003d input.capitalRequirement"
+      }, {
+        "text": " / Math.max(input.userAvailableCapital, 1);\n  if (capitalRatio \u003c\u003d 0."
+      }, {
+        "text": "5) {\n    capitalFitScore \u003d 100;\n    reasons.push(\u0027Kebutuhan modal batch"
+      }, {
+        "text": " pertama di bawah 50% kas, arus kas aman.\u0027);\n  } else if (capitalRatio \u003c\u003d 0"
+      }, {
+        "text": ".9) {\n    capitalFitScore \u003d 75;\n  } else {\n    capitalFitScore \u003d"
+      }, {
+        "text": " 25;\n    caveats.push(\u0027Modal batch menguras \u003e90% kas penjual tanpa cadangan kas darurat.\u0027);"
+      }, {
+        "text": "\n  }\n\n  // E. Keandalan Supplier (10%)\n  const supplierScore \u003d Math."
+      }, {
+        "text": "min(Math.max((input.supplierRating / 5) * 100, 20), 100"
+      }, {
+        "text": ");\n\n  // Kalkulasi Skor Akhir Berbobot\n  const finalScore \u003d Math.round(\n    marginScore * "
+      }, {
+        "text": "0.3 +\n    stockRiskScore * 0.25 +\n    competitionScore * 0."
+      }, {
+        "text": "2 +\n    capitalFitScore * 0.15 +\n    supplierScore * 0.1\n"
+      }, {
+        "text": "  );\n\n  let status: \u0027Layak Diuji\u0027 | \u0027Perlu Perbaikan\u0027 | \u0027Risiko Tinggi"
+      }, {
+        "text": "\u0027 \u003d \u0027Perlu Perbaikan\u0027;\n  if (finalScore \u003e\u003d 75) status \u003d \u0027Layak"
+      }, {
+        "text": " Diuji\u0027;\n  else if (finalScore \u003c 50) status \u003d \u0027Risiko Tinggi\u0027;\n\n  "
+      }, {
+        "text": "return {\n    score: finalScore,\n    status,\n    breakdown: {\n      marginScore,\n      stockRisk"
+      }, {
+        "text": "Score,\n      competitionScore,\n      capitalFitScore,\n      supplierScore,\n    },\n    reasons,\n    cave"
+      }, {
+        "text": "ats,\n  };\n}\n```\n\n---\n\n## 4. Backend Server (Node.js/Express + Sup"
+      }, {
+        "text": "abase Auth + Gemini Proxy)\n\nBackend ini menangani enkapsulasi API Key Google Gemini, pembatasan rate limit (*safety"
+      }, {
+        "text": " check*), dan injeksi instruksi sistem anti-halusinasi data pasar.\n\n### `server/package.json`\n"
+      }, {
+        "text": "```json\n{\n  \"name\": \"produklaku-server\",\n  \"version\": \"1.0"
+      }, {
+        "text": ".0\",\n  \"main\": \"dist/index.js\",\n  \"scripts\": {\n    \"build\":"
+      }, {
+        "text": " \"tsc\",\n    \"start\": \"node dist/index.js\",\n    \"dev\": \"ts-node-dev --"
+      }, {
+        "text": "respawn src/index.ts\"\n  },\n  \"dependencies\": {\n    \"@google/genai"
+      }, {
+        "text": "\": \"^0.1.1\",\n    \"@supabase/supabase-js\": \"^2.39.8"
+      }, {
+        "text": "\",\n    \"cors\": \"^2.8.5\",\n    \"dotenv\": \"^16.4."
+      }, {
+        "text": "5\",\n    \"express\": \"^4.19.2\",\n    \"express-rate-limit\": \"^7.2"
+      }, {
+        "text": ".0\"\n  },\n  \"devDependencies\": {\n    \"@types/cors\": \"^2.8.17\","
+      }, {
+        "text": "\n    \"@types/express\": \"^4.17.21\",\n    \"@types/node\": \"^20"
+      }, {
+        "text": ".11.30\",\n    \"ts-node-dev\": \"^2.0.0\",\n    \"typescript"
+      }, {
+        "text": "\": \"^5.4.3\"\n  }\n}\n```\n\n### `server/src/index.ts"
+      }, {
+        "text": "`\n```typescript\nimport express from \u0027express\u0027;\nimport cors from \u0027cors\u0027;\nimport dotenv from \u0027dotenv\u0027;"
+      }, {
+        "text": "\nimport rateLimit from \u0027express-rate-limit\u0027;\nimport { GoogleGenAI } from \u0027@google/gen"
+      }, {
+        "text": "ai\u0027;\n\ndotenv.config();\n\nconst app \u003d express();\nconst PORT \u003d process.env.PORT || "
+      }, {
+        "text": "5000;\n\napp.use(cors({ origin: process.env.CLIENT_URL || \u0027http://localhost:51"
+      }, {
+        "text": "73\u0027 }));\napp.use(express.json());\n\n// Proteksi Rate Limiting: 30 request"
+      }, {
+        "text": " per 15 menit per IP\nconst aiLimiter \u003d rateLimit({\n  windowMs: 15 * 60 *"
+      }, {
+        "text": " 1000,\n  max: 30,\n  message: { error: \u0027Batas pem"
+      }, {
+        "text": "anggilan AI tercapai. Silakan coba 15 menit lagi.\u0027 },\n});\n\n// Inisialisasi Google"
+      }, {
+        "text": " Gen AI SDK\nconst ai \u003d new GoogleGenAI({\n  apiKey: process.env.GEMINI_API"
+      }, {
+        "text": "_KEY || \u0027\u0027,\n});\n\n// PROMPT SISTEM ANTI-HALUSINASI\nconst SYSTEM_PROMPT \u003d `\n"
+      }, {
+        "text": "Anda adalah analis bisnis e-commerce Indonesia untuk \"ProdukLaku AI\".\nPrinsip wajib:\n1"
+      }, {
+        "text": ". Jangan pernah mengarang angka transaksi, total terjual, atau statistik marketplace seolah itu data pasti tanpa ada verifikasi.\n2."
+      }, {
+        "text": " Gunakan Bahasa Indonesia profesional dan lugas.\n3. Selalu bedakan antara \"Fakta Terdata\", \"Estimasi/"
+      }, {
+        "text": "Asumsi\", dan \"Saran Strategis\".\n4. Fokus pada metrik praktis UMKM/penjual Sho"
+      }, {
+        "text": "pee, TikTok Shop, dan Tokopedia di Indonesia.\n`;\n\n// ROUTE 1: Konsultasi Chatbot Produk"
+      }, {
+        "text": "\napp.post(\u0027/api/ai/chat\u0027, aiLimiter, async (req, res) \u003d\u003e {\n"
+      }, {
+        "text": "  try {\n    const { message, productContext } \u003d req.body;\n\n    if (!process.env.GEMINI_"
+      }, {
+        "text": "API_KEY) {\n      return res.status(503).json({\n        reply: \"Mode Demo Aktif"
+      }, {
+        "text": ": API Key Gemini belum dikonfigurasi di file .env server. Silakan isi GEMINI_API_KEY untuk"
+      }, {
+        "text": " respon kecerdasan buatan langsung.\",\n        isDemo: true\n      });\n    }\n\n    const prompt"
+      }, {
+        "text": " \u003d `\nContext Produk Pengguna: ${JSON.stringify(productContext || {})}\nPertanyaan Pengguna: \"${message}\"\n\n"
+      }, {
+        "text": "Berikan jawaban terstruktur:\n1. Analisis/Jawaban Langsung.\n2. Pertimbangan Risiko Ar"
+      }, {
+        "text": "us Kas/Stok.\n3. Rekomendasi Tindakan Nyata.\n`;\n\n    const response \u003d await ai."
+      }, {
+        "text": "models.generateContent({\n      model: \u0027gemini-2.5-flash\u0027,\n      contents: prompt,\n"
+      }, {
+        "text": "      config: {\n        systemInstruction: SYSTEM_PROMPT,\n        temperature: 0.2, // Rend"
+      }, {
+        "text": "ah agar tidak halusinasi\n      }\n    });\n\n    return res.json({ reply: response.text, isDemo"
+      }, {
+        "text": ": false });\n  } catch (error: any) {\n    console.error(\u0027Gemini API Error:\u0027, error);\n    "
+      }, {
+        "text": "return res.status(500).json({ error: \u0027Gagal memproses analisis AI. Periksa ku"
+      }, {
+        "text": "ota atau kunci API Anda.\u0027 });\n  }\n});\n\n// ROUTE 2: Ekstraksi Ide \u0026"
+      }, {
+        "text": " Kriteria Produk\napp.post(\u0027/api/ai/ideate\u0027, aiLimiter, async (req, res)"
+      }, {
+        "text": " \u003d\u003e {\n  try {\n    const { category, marketplace, budget } \u003d req.body;\n\n    if (!process.env"
+      }, {
+        "text": ".GEMINI_API_KEY) {\n      return res.json({\n        isDemo: true,\n"
+      }, {
+        "text": "        ideas: [\n          {\n            name: \"Organizer Dapur Transparan (Demo)\",\n            category: category ||"
+      }, {
+        "text": " \"Perlengkapan Rumah\",\n            reason: \"Permintaan stabil pada live-stream shopping wanita 25-40"
+      }, {
+        "text": " tahun.\",\n            riskNotes: \"Volume besar memperbesar biaya ongkir/kubikasi gudang.\",\n            missingData"
+      }, {
+        "text": ": \"Biaya packing kardus khusus agar mika tidak retak.\"\n          }\n        ]\n      });\n"
+      }, {
+        "text": "    }\n\n    const prompt \u003d `\nKategori: ${category}\nMarketplace: ${marketplace}\nModal: Rp ${budget"
+      }, {
+        "text": "}\n\nHasilkan 3 ide produk potensial dalam format JSON VALID tanpa tag pembuka/penutup markdown:\n[\n  "
+      }, {
+        "text": "{\n    \"name\": \"nama produk\",\n    \"category\": \"${category}\",\n    \"reason\": \""
+      }, {
+        "text": "alasan pasar logis\",\n    \"riskNotes\": \"faktor risiko fisik atau persaingan\",\n    \""
+      }, {
+        "text": "missingData\": \"data lanjutan yang harus dicari penjual\"\n  }\n]\n`;\n\n    const response \u003d await ai"
+      }, {
+        "text": ".models.generateContent({\n      model: \u0027gemini-2.5-flash\u0027,\n      contents:"
+      }, {
+        "text": " prompt,\n      config: {\n        systemInstruction: SYSTEM_PROMPT,\n        responseMimeType: \"application"
+      }, {
+        "text": "/json\"\n      }\n    });\n\n    const parsed \u003d JSON.parse(response.text || \"[]\");\n    return res"
+      }, {
+        "text": ".json({ ideas: parsed, isDemo: false });\n  } catch (err: any) {\n    "
+      }, {
+        "text": "console.error(err);\n    return res.status(500).json({ error: \u0027Gagal menghasilkan"
+      }, {
+        "text": " ide produk.\u0027 });\n  }\n});\n\napp.listen(PORT, () \u003d\u003e {\n  console.log"
+      }, {
+        "text": "(`Server ProdukLaku AI berjalan di http://localhost:${PORT}`);\n});\n```\n\n---\n\n## 5"
+      }, {
+        "text": ". Frontend Core (Vite + React + Tailwind + Recharts)\n\n### Setup Frontend UI\n\nLetakkan konfigurasi styling"
+      }, {
+        "text": " pada `client/tailwind.config.js`:\n```javascript\n/** @type {import(\u0027tailwindcss\u0027).Config} */\n"
+      }, {
+        "text": "export default {\n  content: [\"./index.html\", \"./src/**/*.{js,ts,jsx,tsx}\""
+      }, {
+        "text": "],\n  theme: {\n    extend: {\n      colors: {\n        brand: {\n          navy:"
+      }, {
+        "text": " \"#0F172A\",\n          blue: \"#2563EB\",\n          green: \"#16A3"
+      }, {
+        "text": "4A\",\n          red: \"#DC2626\",\n          slate: \"#64748"
+      }, {
+        "text": "B\",\n          bg: \"#F8FAFC\"\n        }\n      }\n    },\n  },\n  plugins"
+      }, {
+        "text": ": [],\n}\n```\n\n### Type Definitions (`client/src/types/index.ts`)\n```typescript\nexport interface ProductItem"
+      }, {
+        "text": " {\n  id: string;\n  name: string;\n  category: string;\n  marketplace: string"
+      }, {
+        "text": ";\n  cogsPrice: number;\n  sellingPrice: number;\n  weightGrams: number;\n"
+      }, {
+        "text": "  stockQty: number;\n  score: number;\n  scoreStatus: \u0027Layak Diuji\u0027 | \u0027Perlu Perbaikan"
+      }, {
+        "text": "\u0027 | \u0027Risiko Tinggi\u0027;\n  isVerified: boolean;\n  notes?: string;\n}\n```\n\n### Data Demo"
+      }, {
+        "text": " Mock (`client/src/lib/mockData.ts`)\n```typescript\nimport { ProductItem } from \u0027../"
+      }, {
+        "text": "types\u0027;\n\nexport const INITIAL_DEMO_PRODUCTS: ProductItem[] \u003d [\n  {\n    id:"
+      }, {
+        "text": " \"prod-demo-01\",\n    name: \"Lampu Meja LED Fleksibel USB (DEM"
+      }, {
+        "text": "O)\",\n    category: \"Elektronik \u0026 Rumah Tangga\",\n    marketplace: \"Shopee\",\n    cogsPrice:"
+      }, {
+        "text": " 18500,\n    sellingPrice: 42000,\n    weightGrams"
+      }, {
+        "text": ": 250,\n    stockQty: 100,\n    score: 82,\n    scoreStatus:"
+      }, {
+        "text": " \"Layak Diuji\",\n    isVerified: false,\n    notes: \"Data contoh: HPP did"
+      }, {
+        "text": "apat dari supplier lokal Tanah Abang.\"\n  },\n  {\n    id: \"prod-demo-02\",\n    name"
+      }, {
+        "text": ": \"Botol Tumbler Stainless 500ml Polos (DEMO)\",\n    category: \"Perl"
+      }, {
+        "text": "engkapan Minum\",\n    marketplace: \"TikTok Shop\",\n    cogsPrice: 32000,\n"
+      }, {
+        "text": "    sellingPrice: 49000,\n    weightGrams: 350,\n    stockQty"
+      }, {
+        "text": ": 50,\n    score: 54,\n    scoreStatus: \"Perlu Perbaikan\",\n    is"
+      }, {
+        "text": "Verified: false,\n    notes: \"Data contoh: Margin tipis tergerus komisi affiliator TikTok.\"\n  }\n"
+      }, {
+        "text": "];\n```\n\n### Aplikasi Utama (`client/src/App.tsx`)\n```tsx\nimport React, { useState } from"
+      }, {
+        "text": " \u0027react\u0027;\nimport { \n  LayoutDashboard, \n  Search, \n  Calculator, \n  TrendingUp,"
+      }, {
+        "text": " \n  Users, \n  Truck, \n  MessageSquareSquare, \n  AlertCircle \n} from \u0027"
+      }, {
+        "text": "lucide-react\u0027;\n\nimport DashboardPage from \u0027./pages/DashboardPage\u0027;\nimport CalculatorPage from \u0027./pages/CalculatorPage\u0027;"
+      }, {
+        "text": "\nimport ResearchPage from \u0027./pages/ResearchPage\u0027;\nimport SimulationPage from \u0027./pages/SimulationPage\u0027;\nimport"
+      }, {
+        "text": " ChatbotPage from \u0027./pages/ChatbotPage\u0027;\nimport { INITIAL_DEMO_PRODUCTS } from \u0027./lib"
+      }, {
+        "text": "/mockData\u0027;\nimport { ProductItem } from \u0027./types\u0027;\n\nexport default function App() {\n  const"
+      }, {
+        "text": " [activeTab, setActiveTab] \u003d useState\u003c\u0027dashboard\u0027 | \u0027calc\u0027 | \u0027research\u0027 | \u0027simulation\u0027 |"
+      }, {
+        "text": " \u0027chat\u0027\u003e(\u0027dashboard\u0027);\n  const [products, setProducts] \u003d useState\u003cProductItem[]\u003e(INITIAL_"
+      }, {
+        "text": "DEMO_PRODUCTS);\n  const [selectedProduct, setSelectedProduct] \u003d useState\u003cProductItem\u003e(products[0]);\n\n  return"
+      }, {
+        "text": " (\n    \u003cdiv className\u003d\"flex h-screen bg-slate-50 text-slate-800"
+      }, {
+        "text": " font-sans\"\u003e\n      {/* Sidebar Navigasi */}\n      \u003caside className\u003d\"w-64 bg-slate-90"
+      }, {
+        "text": "0 text-white flex flex-col justify-between\"\u003e\n        \u003cdiv\u003e\n          \u003cdiv className\u003d\"p-6 border-b border"
+      }, {
+        "text": "-slate-800\"\u003e\n            \u003ch1 className\u003d\"text-xl font-bold tracking-tight text"
+      }, {
+        "text": "-white flex items-center gap-2\"\u003e\n              \u003cspan className\u003d\"text-blue-500\"\u003eProdu"
+      }, {
+        "text": "kLaku\u003c/span\u003e AI\n            \u003c/h1\u003e\n            \u003cp className\u003d\"text-xs text-slate-400 mt-"
+      }, {
+        "text": "1\"\u003eRiset Lebih Cerdas, Jualan Lebih Untung.\u003c/p\u003e\n          \u003c/div\u003e\n\n          \u003cnav className\u003d\"p-4 space"
+      }, {
+        "text": "-y-1\"\u003e\n            \u003cbutton\n              onClick\u003d{() \u003d\u003e setActiveTab(\u0027dashboard\u0027)}\n              className\u003d{`w-full flex items-"
+      }, {
+        "text": "center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${\n"
+      }, {
+        "text": "                activeTab \u003d\u003d\u003d \u0027dashboard\u0027 ? \u0027bg-blue-600 text-white\u0027 : \u0027text-"
+      }, {
+        "text": "slate-400 hover:bg-slate-800 hover:text-white\u0027\n              }`}\n"
+      }, {
+        "text": "            \u003e\n              \u003cLayoutDashboard size\u003d{18} /\u003e Dashboard\n            \u003c/button\u003e\n            \u003cbutton\n              onClick\u003d{()"
+      }, {
+        "text": " \u003d\u003e setActiveTab(\u0027research\u0027)}\n              className\u003d{`w-full flex items-center gap-3 px-3 py"
+      }, {
+        "text": "-2.5 rounded-lg text-sm font-medium transition ${\n                activeTab \u003d\u003d\u003d \u0027research\u0027 ?"
+      }, {
+        "text": " \u0027bg-blue-600 text-white\u0027 : \u0027text-slate-400 hover:bg"
+      }, {
+        "text": "-slate-800 hover:text-white\u0027\n              }`}\n            \u003e\n              \u003cSearch size\u003d{"
+      }, {
+        "text": "18} /\u003e AI Product Research\n            \u003c/button\u003e\n            \u003cbutton\n              onClick\u003d{() \u003d\u003e setActiveTab(\u0027"
+      }, {
+        "text": "calc\u0027)}\n              className\u003d{`w-full flex items-center gap-3 px-3 py-2.5"
+      }, {
+        "text": " rounded-lg text-sm font-medium transition ${\n                activeTab \u003d\u003d\u003d \u0027calc\u0027 ? \u0027bg-blue"
+      }, {
+        "text": "-600 text-white\u0027 : \u0027text-slate-400 hover:bg-slate-8"
+      }, {
+        "text": "00 hover:text-white\u0027\n              }`}\n            \u003e\n              \u003cCalculator size\u003d{18} /\u003e"
+      }, {
+        "text": " Kalkulator Keuntungan\n            \u003c/button\u003e\n            \u003cbutton\n              onClick\u003d{() \u003d\u003e setActiveTab(\u0027simulation\u0027)}\n              className\u003d{`w"
+      }, {
+        "text": "-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font"
+      }, {
+        "text": "-medium transition ${\n                activeTab \u003d\u003d\u003d \u0027simulation\u0027 ? \u0027bg-blue-600 text-white"
+      }, {
+        "text": "\u0027 : \u0027text-slate-400 hover:bg-slate-800 hover:text-white"
+      }, {
+        "text": "\u0027\n              }`}\n            \u003e\n              \u003cTrendingUp size\u003d{18} /\u003e Simulasi Modal \u0026 Risiko\n"
+      }, {
+        "text": "            \u003c/button\u003e\n            \u003cbutton\n              onClick\u003d{() \u003d\u003e setActiveTab(\u0027chat\u0027)}\n              className\u003d{`w-"
+      }, {
+        "text": "full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-"
+      }, {
+        "text": "medium transition ${\n                activeTab \u003d\u003d\u003d \u0027chat\u0027 ? \u0027bg-blue-600 text-white\u0027"
+      }, {
+        "text": " : \u0027text-slate-400 hover:bg-slate-800 hover:text-white\u0027"
+      }, {
+        "text": "\n              }`}\n            \u003e\n              \u003cMessageSquareSquare size\u003d{18} /\u003e Asisten Chat AI\n            "
+      }, {
+        "text": "\u003c/button\u003e\n          \u003c/nav\u003e\n        \u003c/div\u003e\n\n        \u003cdiv className\u003d\"p-4 border-t border"
+      }, {
+        "text": "-slate-800 text-xs text-slate-500\"\u003e\n          Mode Akun: \u003cspan className"
+      }, {
+        "text": "\u003d\"text-amber-400 font-semibold\"\u003eDemo Lokal\u003c/span\u003e\n          \u003cp className\u003d\"mt-1\"\u003eTidak"
+      }, {
+        "text": " ada data marketplace scraped.\u003c/p\u003e\n        \u003c/div\u003e\n      \u003c/aside\u003e\n\n      {/* Main View Area */}\n      "
+      }, {
+        "text": "\u003cmain className\u003d\"flex-1 flex flex-col overflow-y-auto\"\u003e\n        \u003cheader className\u003d\"h"
+      }, {
+        "text": "-16 bg-white border-b border-slate-200 px-8 flex items-center justify-"
+      }, {
+        "text": "between\"\u003e\n          \u003cdiv className\u003d\"flex items-center gap-2\"\u003e\n            \u003cspan className\u003d\"text-xs px-"
+      }, {
+        "text": "2.5 py-1 bg-amber-100 text-amber-800 font-medium rounded-full flex items-"
+      }, {
+        "text": "center gap-1\"\u003e\n              \u003cAlertCircle size\u003d{14} /\u003e DEMO MODE: Data Contoh\n            \u003c/span\u003e\n          \u003c/div\u003e"
+      }, {
+        "text": "\n          \u003cdiv className\u003d\"text-sm text-slate-500\"\u003e\n            Mata Uang: "
+      }, {
+        "text": "\u003cstrong\u003eIDR (Rp)\u003c/strong\u003e | Wilayah: \u003cstrong\u003eIndonesia\u003c/strong\u003e\n          \u003c/div\u003e\n        \u003c/header\u003e\n\n        \u003cdiv"
+      }, {
+        "text": " className\u003d\"p-8\"\u003e\n          {activeTab \u003d\u003d\u003d \u0027dashboard\u0027 \u0026\u0026 (\n            \u003cDashboardPage products\u003d{"
+      }, {
+        "text": "products} onSelectProduct\u003d{(p) \u003d\u003e { setSelectedProduct(p); setActiveTab(\u0027calc\u0027); }} /\u003e\n          )}\n"
+      }, {
+        "text": "          {activeTab \u003d\u003d\u003d \u0027calc\u0027 \u0026\u0026 (\n            \u003cCalculatorPage product\u003d{selectedProduct} /\u003e\n          )}\n"
+      }, {
+        "text": "          {activeTab \u003d\u003d\u003d \u0027research\u0027 \u0026\u0026 (\n            \u003cResearchPage onAddProduct\u003d{(newP) \u003d\u003e setProducts([...products"
+      }, {
+        "text": ", newP])} /\u003e\n          )}\n          {activeTab \u003d\u003d\u003d \u0027simulation\u0027 \u0026\u0026 (\n            \u003cSimulation"
+      }, {
+        "text": "Page product\u003d{selectedProduct} /\u003e\n          )}\n          {activeTab \u003d\u003d\u003d \u0027chat\u0027 \u0026\u0026 (\n            \u003c"
+      }, {
+        "text": "ChatbotPage activeProduct\u003d{selectedProduct} /\u003e\n          )}\n        \u003c/div\u003e\n      \u003c/main\u003e\n    \u003c/div\u003e"
+      }, {
+        "text": "\n  );\n}\n```\n\n### Halaman Kalkulator Keuntungan (`client/src/pages/CalculatorPage.tsx`)\n"
+      }, {
+        "text": "```tsx\nimport React, { useState, useMemo } from \u0027react\u0027;\nimport { calculateUnitEconomics } from"
+      }, {
+        "text": " \u0027../lib/calculator\u0027;\nimport { ProductItem } from \u0027../types\u0027;\n\nexport default function CalculatorPage({ product }: { product: ProductItem"
+      }, {
+        "text": " }) {\n  const [cogs, setCogs] \u003d useState\u003cnumber\u003e(product.cogsPrice);"
+      }, {
+        "text": "\n  const [sellingPrice, setSellingPrice] \u003d useState\u003cnumber\u003e(product.sellingPrice);\n  const"
+      }, {
+        "text": " [feePercent, setFeePercent] \u003d useState\u003cnumber\u003e(6.5);\n  const [packaging, set"
+      }, {
+        "text": "Packaging] \u003d useState\u003cnumber\u003e(2000);\n  const [shippingSubsidy, setShippingSubsidy"
+      }, {
+        "text": "] \u003d useState\u003cnumber\u003e(1500);\n  const [adCost, setAdCost] \u003d useState"
+      }, {
+        "text": "\u003cnumber\u003e(5000);\n  const [opsCost, setOpsCost] \u003d useState\u003cnumber\u003e(1000"
+      }, {
+        "text": ");\n  const [returnRate, setReturnRate] \u003d useState\u003cnumber\u003e(2);\n\n  const calcResult \u003d useMemo(()"
+      }, {
+        "text": " \u003d\u003e {\n    return calculateUnitEconomics({\n      cogsPrice: cogs,\n      sellingPrice,\n"
+      }, {
+        "text": "      marketplaceFeePercent: feePercent,\n      serviceFeeFixed: 1000,\n      packagingCost"
+      }, {
+        "text": ": packaging,\n      shippingSubsidy,\n      adCostPerOrder: adCost,\n      operationalPerUnit"
+      }, {
+        "text": ": opsCost,\n      returnRatePercent: returnRate,\n      taxPercent: 0.5,\n"
+      }, {
+        "text": "    });\n  }, [cogs, sellingPrice, feePercent, packaging, shippingSubsidy, adCost,"
+      }, {
+        "text": " opsCost, returnRate]);\n\n  return (\n    \u003cdiv className\u003d\"max-w-5xl mx-auto space-"
+      }, {
+        "text": "y-6\"\u003e\n      \u003cdiv\u003e\n        \u003ch2 className\u003d\"text-2xl font-bold text-slate-9"
+      }, {
+        "text": "00\"\u003eKalkulator Margin Bersih \u0026 Unit Economics\u003c/h2\u003e\n        \u003cp className\u003d\"text-sm text-slate-50"
+      }, {
+        "text": "0\"\u003ePerhitungan matematis deterministik tanpa asumsi fiktif.\u003c/p\u003e\n      \u003c/div\u003e\n\n      \u003cdiv"
+      }, {
+        "text": " className\u003d\"grid grid-cols-1 md:grid-cols-2 gap-6\"\u003e\n        {/* Formulir"
+      }, {
+        "text": " Input */}\n        \u003cdiv className\u003d\"bg-white p-6 rounded-xl border border-slate-20"
+      }, {
+        "text": "0 shadow-sm space-y-4\"\u003e\n          \u003ch3 className\u003d\"text-base font-semibold text"
+      }, {
+        "text": "-slate-800 border-b pb-2\"\u003eKomponen Harga \u0026 Beban (IDR)\u003c/h3\u003e\n          "
+      }, {
+        "text": "\n          \u003cdiv className\u003d\"grid grid-cols-2 gap-4\"\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-"
+      }, {
+        "text": "xs font-semibold text-slate-600\"\u003eHarga Beli Supplier (HPP)\u003c/label\u003e\n              "
+      }, {
+        "text": "\u003cinput\n                type\u003d\"number\"\n                value\u003d{cogs}\n                onChange\u003d{(e) \u003d\u003e setC"
+      }, {
+        "text": "ogs(Number(e.target.value))}\n                className\u003d\"w-full mt-1 px-3 py-2 border"
+      }, {
+        "text": " rounded-lg text-sm font-medium\"\n              /\u003e\n            \u003c/div\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\""
+      }, {
+        "text": "text-xs font-semibold text-slate-600\"\u003eTarget Harga Jual\u003c/label\u003e\n              \u003cinput\n                type"
+      }, {
+        "text": "\u003d\"number\"\n                value\u003d{sellingPrice}\n                onChange\u003d{(e) \u003d\u003e setSellingPrice(Number(e"
+      }, {
+        "text": ".target.value))}\n                className\u003d\"w-full mt-1 px-3 py-2 border rounded-"
+      }, {
+        "text": "lg text-sm font-medium\"\n              /\u003e\n            \u003c/div\u003e\n          \u003c/div\u003e\n\n          \u003cdiv className\u003d\"grid"
+      }, {
+        "text": " grid-cols-2 gap-4\"\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-xs font-semibold"
+      }, {
+        "text": " text-slate-600\"\u003eFee Marketplace (%)\u003c/label\u003e\n              \u003cinput\n                type\u003d\"number\""
+      }, {
+        "text": "\n                step\u003d\"0.1\"\n                value\u003d{feePercent}\n                onChange\u003d{(e) \u003d\u003e setFee"
+      }, {
+        "text": "Percent(Number(e.target.value))}\n                className\u003d\"w-full mt-1 px-3 py"
+      }, {
+        "text": "-2 border rounded-lg text-sm\"\n              /\u003e\n            \u003c/div\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-xs"
+      }, {
+        "text": " font-semibold text-slate-600\"\u003eAlokasi Ads per Order\u003c/label\u003e\n              \u003cinput\n                type\u003d\"number"
+      }, {
+        "text": "\"\n                value\u003d{adCost}\n                onChange\u003d{(e) \u003d\u003e setAdCost(Number(e.target"
+      }, {
+        "text": ".value))}\n                className\u003d\"w-full mt-1 px-3 py-2 border rounded-lg text"
+      }, {
+        "text": "-sm\"\n              /\u003e\n            \u003c/div\u003e\n          \u003c/div\u003e\n\n          \u003cdiv className\u003d\"grid grid-cols-3"
+      }, {
+        "text": " gap-3\"\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-xs font-semibold text-slate-6"
+      }, {
+        "text": "00\"\u003ePacking\u003c/label\u003e\n              \u003cinput\n                type\u003d\"number\"\n                value\u003d{packaging}\n"
+      }, {
+        "text": "                onChange\u003d{(e) \u003d\u003e setPackaging(Number(e.target.value))}\n                className\u003d\"w-full"
+      }, {
+        "text": " mt-1 px-2.5 py-1.5 border rounded-lg text-sm\"\n              /\u003e\n            \u003c/div\u003e\n"
+      }, {
+        "text": "            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-xs font-semibold text-slate-600\"\u003eSubsidi"
+      }, {
+        "text": " Ongkir\u003c/label\u003e\n              \u003cinput\n                type\u003d\"number\"\n                value\u003d{shippingSubsidy}\n"
+      }, {
+        "text": "                onChange\u003d{(e) \u003d\u003e setShippingSubsidy(Number(e.target.value))}\n                className\u003d\"w"
+      }, {
+        "text": "-full mt-1 px-2.5 py-1.5 border rounded-lg text-sm\"\n"
+      }, {
+        "text": "              /\u003e\n            \u003c/div\u003e\n            \u003cdiv\u003e\n              \u003clabel className\u003d\"text-xs font-semibold text-slate-"
+      }, {
+        "text": "600\"\u003eRetur (%)\u003c/label\u003e\n              \u003cinput\n                type\u003d\"number\"\n                value\u003d{"
+      }, {
+        "text": "returnRate}\n                onChange\u003d{(e) \u003d\u003e setReturnRate(Number(e.target.value))}\n                "
+      }, {
+        "text": "className\u003d\"w-full mt-1 px-2.5 py-1.5 border rounded-lg text-"
+      }, {
+        "text": "sm\"\n              /\u003e\n            \u003c/div\u003e\n          \u003c/div\u003e\n        \u003c/div\u003e\n\n        {/* Hasil Unit Economics */}\n        \u003cdiv"
+      }, {
+        "text": " className\u003d\"bg-slate-900 text-white p-6 rounded-xl flex flex-col justify-"
+      }, {
+        "text": "between shadow-md\"\u003e\n          \u003cdiv\u003e\n            \u003cspan className\u003d\"text-xs uppercase tracking-wider text-slate-"
+      }, {
+        "text": "400\"\u003eRingkasan Margin Bersih Realistis\u003c/span\u003e\n            \u003cdiv className\u003d\"mt-4 flex"
+      }, {
+        "text": " items-baseline gap-4\"\u003e\n              \u003cspan className\u003d{`text-4xl font-extrabold ${calcResult.netProfit"
+      }, {
+        "text": "PerUnit \u003e 0 ? \u0027text-green-400\u0027 : \u0027text-red-400\u0027}`}\u003e\n                "
+      }, {
+        "text": "Rp {calcResult.netProfitPerUnit.toLocaleString(\u0027id-ID\u0027)}\n              \u003c/span\u003e\n              \u003cspan className"
+      }, {
+        "text": "\u003d\"text-sm text-slate-300\"\u003e/ unit terjual\u003c/span\u003e\n            \u003c/div\u003e\n            \u003cdiv className\u003d\"mt"
+      }, {
+        "text": "-2 text-sm text-slate-300\"\u003e\n              Margin Bersih: \u003cstrong className\u003d\"text-white\"\u003e{calcResult"
+      }, {
+        "text": ".netMarginPercent}%\u003c/strong\u003e | ROI: \u003cstrong className\u003d\"text-white\"\u003e{calcResult.roiPercent}%\u003c/strong\u003e"
+      }, {
+        "text": "\n            \u003c/div\u003e\n          \u003c/div\u003e\n\n          \u003cdiv className\u003d\"space-y-2 py-4 border-t border"
+      }, {
+        "text": "-slate-800 text-sm\"\u003e\n            \u003cdiv className\u003d\"flex justify-between text-slate-400"
+      }, {
+        "text": "\"\u003e\n              \u003cspan\u003eTotal Beban Operasional \u0026 Ads:\u003c/span\u003e\n              \u003cspan\u003eRp {calcResult.variableCostsTotal.toLocaleString(\u0027id"
+      }, {
+        "text": "-ID\u0027)}\u003c/span\u003e\n            \u003c/div\u003e\n            \u003cdiv className\u003d\"flex justify-between text-slate-400"
+      }, {
+        "text": "\"\u003e\n              \u003cspan\u003eTotal HPP + Biaya per Unit:\u003c/span\u003e\n              \u003cspan\u003eRp {calcResult.totalCost"
+      }, {
+        "text": "PerUnit.toLocaleString(\u0027id-ID\u0027)}\u003c/span\u003e\n            \u003c/div\u003e\n            \u003cdiv className\u003d\"flex justify-between text"
+      }, {
+        "text": "-slate-400\"\u003e\n              \u003cspan\u003eBreak-Even (Fixed Cost Rp 3.000."
+      }, {
+        "text": "000/bln):\u003c/span\u003e\n              \u003cspan className\u003d\"text-white font-medium\"\u003e{calcResult."
+      }, {
+        "text": "breakEvenUnits(3000000)} Unit\u003c/span\u003e\n            \u003c/div\u003e\n          \u003c/div\u003e\n\n          \u003cdiv className\u003d\""
+      }, {
+        "text": "p-3 bg-slate-800/80 rounded-lg text-xs text-slate-300\"\u003e\n"
+      }, {
+        "text": "            \u003cstrong\u003eKeterangan:\u003c/strong\u003e Hasil kalkulasi dihitung otomatis dari data biaya yang diinput di samping, mencakup asum"
+      }, {
+        "text": "si PPh Final UMKM 0.5% dan risiko retur {returnRate}%.\n          \u003c/div\u003e\n        \u003c/div\u003e\n      "
+      }, {
+        "text": "\u003c/div\u003e\n    \u003c/div\u003e\n  );\n}\n```\n\n### Halaman Simulasi Modal \u0026 Risiko Tiga Skenario (`client"
+      }, {
+        "text": "/src/pages/SimulationPage.tsx`)\n```tsx\nimport React, { useState } from \u0027react\u0027;\n"
+      }, {
+        "text": "import { ProductItem } from \u0027../types\u0027;\nimport { BarChart, Bar, XAxis, YAxis, Tooltip, Responsive"
+      }, {
+        "text": "Container, Legend } from \u0027recharts\u0027;\n\nexport default function SimulationPage({ product }: { product: ProductItem }) {\n"
+      }, {
+        "text": "  const [initialCapital, setInitialCapital] \u003d useState\u003cnumber\u003e(10000000); //"
+      }, {
+        "text": " Rp 10 Juta\n  const [stockBatch, setStockBatch] \u003d useState\u003cnumber\u003e(200"
+      }, {
+        "text": ");\n\n  // Kalkulasi 3 Skenario\n  const cogs \u003d product.cogsPrice;\n  const price"
+      }, {
+        "text": " \u003d product.sellingPrice;\n  const stockCostTotal \u003d stockBatch * cogs;\n\n  const scenarios \u003d [\n    {"
+      }, {
+        "text": "\n      name: \u0027Pesimistis (Terjual 40%, Retur 5%)\u0027,\n      soldQty: Math."
+      }, {
+        "text": "floor(stockBatch * 0.4),\n      revenue: Math.floor(stockBatch * 0.4"
+      }, {
+        "text": ") * price,\n      operationalCost: stockCostTotal + (stockBatch * 0.4 * 8"
+      }, {
+        "text": "000), // iklan boros\n      profit: (Math.floor(stockBatch * 0.4)"
+      }, {
+        "text": " * price) - (stockCostTotal + (stockBatch * 0.4 * 8000)),\n      uns"
+      }, {
+        "text": "oldCapital: (stockBatch - Math.floor(stockBatch * 0.4)) * cogs\n    },\n"
+      }, {
+        "text": "    {\n      name: \u0027Normal (Terjual 75%, Retur 2%)\u0027,\n      soldQty: Math"
+      }, {
+        "text": ".floor(stockBatch * 0.75),\n      revenue: Math.floor(stockBatch * "
+      }, {
+        "text": "0.75) * price,\n      operationalCost: stockCostTotal + (stockBatch * 0."
+      }, {
+        "text": "75 * 5000),\n      profit: (Math.floor(stockBatch * 0."
+      }, {
+        "text": "75) * price) - (stockCostTotal + (stockBatch * 0.75 * 5"
+      }, {
+        "text": "000)),\n      unsoldCapital: (stockBatch - Math.floor(stockBatch * 0."
+      }, {
+        "text": "75)) * cogs\n    },\n    {\n      name: \u0027Optimistis (Terjual"
+      }, {
+        "text": " 100%, Retur 1%)\u0027,\n      soldQty: stockBatch,\n      revenue: stockBatch * price,\n"
+      }, {
+        "text": "      operationalCost: stockCostTotal + (stockBatch * 3500),\n      profit: (stockBatch * price) -"
+      }, {
+        "text": " (stockCostTotal + (stockBatch * 3500)),\n      unsoldCapital: 0\n"
+      }, {
+        "text": "    }\n  ];\n\n  return (\n    \u003cdiv className\u003d\"space-y-6\"\u003e\n      \u003cdiv\u003e"
+      }, {
+        "text": "\n        \u003ch2 className\u003d\"text-2xl font-bold text-slate-900\"\u003eSimulasi Modal \u0026 U"
+      }, {
+        "text": "ji Sensitivitas\u003c/h2\u003e\n        \u003cp className\u003d\"text-sm text-slate-500\"\u003eMengan"
+      }, {
+        "text": "alisis skenario perputaran stok: {product.name}\u003c/p\u003e\n      \u003c/div\u003e\n\n      \u003cdiv className\u003d\"grid"
+      }, {
+        "text": " grid-cols-1 md:grid-cols-3 gap-4\"\u003e\n        \u003cdiv className\u003d\"bg-white p-"
+      }, {
+        "text": "4 border rounded-xl\"\u003e\n          \u003clabel className\u003d\"text-xs text-slate-500\"\u003eModal"
+      }, {
+        "text": " Kas Penjual\u003c/label\u003e\n          \u003cinput \n            type\u003d\"number\" \n            value\u003d{initialCapital"
+      }, {
+        "text": "} \n            onChange\u003d{(e) \u003d\u003e setInitialCapital(Number(e.target.value))}\n            className"
+      }, {
+        "text": "\u003d\"w-full text-lg font-bold text-slate-800 mt-1 border-b pb"
+      }, {
+        "text": "-1 focus:outline-none\"\n          /\u003e\n        \u003c/div\u003e\n        \u003cdiv className\u003d\"bg-white p"
+      }, {
+        "text": "-4 border rounded-xl\"\u003e\n          \u003clabel className\u003d\"text-xs text-slate-500\"\u003e"
+      }, {
+        "text": "Rencana Pembelian Unit Stok\u003c/label\u003e\n          \u003cinput \n            type\u003d\"number\" \n            value"
+      }, {
+        "text": "\u003d{stockBatch} \n            onChange\u003d{(e) \u003d\u003e setStockBatch(Number(e.target.value))}"
+      }, {
+        "text": "\n            className\u003d\"w-full text-lg font-bold text-slate-800 mt-1 border"
+      }, {
+        "text": "-b pb-1 focus:outline-none\"\n          /\u003e\n        \u003c/div\u003e\n        \u003cdiv className\u003d\"bg"
+      }, {
+        "text": "-white p-4 border rounded-xl\"\u003e\n          \u003clabel className\u003d\"text-xs text-slate-5"
+      }, {
+        "text": "00\"\u003eKas Terkunci pada Stok\u003c/label\u003e\n          \u003cdiv className\u003d\"text-lg font-bold text-"
+      }, {
+        "text": "blue-600 mt-1\"\u003e\n            Rp {stockCostTotal.toLocaleString(\u0027id-ID\u0027)}\n"
+      }, {
+        "text": "          \u003c/div\u003e\n          \u003cp className\u003d\"text-[11px] text-slate-400\"\u003e{(stockCostTotal /"
+      }, {
+        "text": " initialCapital * 100).toFixed(1)}% dari modal kas\u003c/p\u003e\n        \u003c/div\u003e\n      \u003c/div\u003e\n\n      {/*"
+      }, {
+        "text": " Grafik Perbandingan */}\n      \u003cdiv className\u003d\"bg-white p-6 border rounded-xl shadow-sm\"\u003e\n        "
+      }, {
+        "text": "\u003ch3 className\u003d\"text-sm font-semibold text-slate-700 mb-4\"\u003eGrafik"
+      }, {
+        "text": " Perbandingan Omzet vs Estimasi Laba Bersih\u003c/h3\u003e\n        \u003cdiv className\u003d\"h-72 w-full\"\u003e"
+      }, {
+        "text": "\n          \u003cResponsiveContainer width\u003d\"100%\" height\u003d\"100%\"\u003e\n            \u003cBarChart data\u003d{scenarios}\u003e\n              "
+      }, {
+        "text": "\u003cXAxis dataKey\u003d\"name\" fontSize\u003d{12} /\u003e\n              \u003cYAxis fontSize\u003d{12}"
+      }, {
+        "text": " /\u003e\n              \u003cTooltip formatter\u003d{(value: any) \u003d\u003e `Rp ${Number(value).toLocaleString(\u0027id-ID\u0027)}`} /\u003e\n"
+      }, {
+        "text": "              \u003cLegend /\u003e\n              \u003cBar dataKey\u003d\"revenue\" name\u003d\"Estimasi Omzet\" fill\u003d\"#2563EB\" radius"
+      }, {
+        "text": "\u003d{[4, 4, 0, 0]} /\u003e\n              \u003cBar dataKey\u003d\"profit\" name\u003d\"Estimasi Laba/"
+      }, {
+        "text": "Rugi\" fill\u003d\"#16A34A\" radius\u003d{[4, 4, 0, 0"
+      }, {
+        "text": "]} /\u003e\n              \u003cBar dataKey\u003d\"unsoldCapital\" name\u003d\"Modal Tertahan di Stok\" fill\u003d\"#DC"
+      }, {
+        "text": "2626\" radius\u003d{[4, 4, 0, 0]} /\u003e\n            \u003c/BarChart"
+      }, {
+        "text": "\u003e\n          \u003c/ResponsiveContainer\u003e\n        \u003c/div\u003e\n      \u003c/div\u003e\n    \u003c/div\u003e\n  );\n}\n```\n\n### H"
+      }, {
+        "text": "alaman AI Chatbot Terintegrasi Data Produk (`client/src/pages/ChatbotPage.tsx`)\n```tsx\nimport"
+      }, {
+        "text": " React, { useState } from \u0027react\u0027;\nimport { ProductItem } from \u0027../types\u0027;\nimport { Send,"
+      }, {
+        "text": " Bot, User } from \u0027lucide-react\u0027;\n\ninterface ChatMessage {\n  sender: \u0027user\u0027 | \u0027assistant\u0027;"
+      }, {
+        "text": "\n  text: string;\n  isDemo?: boolean;\n}\n\nexport default function ChatbotPage({ activeProduct }: {"
+      }, {
+        "text": " activeProduct: ProductItem }) {\n  const [messages, setMessages] \u003d useState\u003cChatMessage[]\u003e([\n    "
+      }, {
+        "text": "{\n      sender: \u0027assistant\u0027,\n      text: `Halo! Saya asisten ProdukLaku AI. Saya"
+      }, {
+        "text": " memegang data produk pilihan Anda: \"${activeProduct.name}\". Tanyakan simulasi harga jual, target margin, atau uji"
+      }, {
+        "text": " modal.`,\n    }\n  ]);\n  const [inputMsg, setInputMsg] \u003d useState(\u0027\u0027);\n  const [loading,"
+      }, {
+        "text": " setLoading] \u003d useState(false);\n\n  const sendMessage \u003d async () \u003d\u003e {\n    if (!inputMsg.trim"
+      }, {
+        "text": "()) return;\n\n    const userText \u003d inputMsg;\n    setInputMsg(\u0027\u0027);\n    setMessages((prev) \u003d\u003e [...prev,"
+      }, {
+        "text": " { sender: \u0027user\u0027, text: userText }]);\n    setLoading(true);\n\n    try {\n      "
+      }, {
+        "text": "const res \u003d await fetch(\u0027http://localhost:5000/api/ai/chat\u0027, {\n        "
+      }, {
+        "text": "method: \u0027POST\u0027,\n        headers: { \u0027Content-Type\u0027: \u0027application/json\u0027 },\n        body"
+      }, {
+        "text": ": JSON.stringify({\n          message: userText,\n          productContext: activeProduct\n        })\n      "
+      }, {
+        "text": "});\n\n      if (!res.ok) throw new Error(\u0027Koneksi server gagal\u0027);\n      const data \u003d await res.json();"
+      }, {
+        "text": "\n\n      setMessages((prev) \u003d\u003e [\n        ...prev, \n        { sender: \u0027assistant\u0027, text:"
+      }, {
+        "text": " data.reply, isDemo: data.isDemo }\n      ]);\n    } catch (err) {\n      //"
+      }, {
+        "text": " Fallback deterministik lokal jika server belum jalan\n      setMessages((prev) \u003d\u003e [\n        ...prev,\n"
+      }, {
+        "text": "        {\n          sender: \u0027assistant\u0027,\n          text: `[RESPON DEMO OFFLINE]: Jika"
+      }, {
+        "text": " HPP Anda Rp ${activeProduct.cogsPrice.toLocaleString(\u0027id-ID\u0027)} dan Anda menargetkan lab"
+      }, {
+        "text": "a bersih 20%, harga jual minimum yang disarankan setelah memperhitungkan fee marketplace 6.5% dan oper"
+      }, {
+        "text": "asional adalah sekitar Rp ${Math.round(activeProduct.cogsPrice * 1.35).toLocaleString(\u0027id-ID\u0027)"
+      }, {
+        "text": "}. Pastikan melakukan uji coba 20 pcs sebelum restock skala besar.`,\n          isDemo: true\n        }\n      ]);"
+      }, {
+        "text": "\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  return (\n    "
+      }, {
+        "text": "\u003cdiv className\u003d\"max-w-4xl mx-auto h-[78vh] flex flex-col bg-white border border"
+      }, {
+        "text": "-slate-200 rounded-xl overflow-hidden shadow-sm\"\u003e\n      \u003cdiv className\u003d\"p-"
+      }, {
+        "text": "4 bg-slate-900 text-white flex justify-between items-center\"\u003e\n        \u003cdiv\u003e\n          "
+      }, {
+        "text": "\u003ch3 className\u003d\"font-semibold text-sm\"\u003eKonsultasi Bisnis: {activeProduct.name}"
+      }, {
+        "text": "\u003c/h3\u003e\n          \u003cp className\u003d\"text-xs text-slate-400\"\u003eKonteks HPP: Rp"
+      }, {
+        "text": " {activeProduct.cogsPrice.toLocaleString(\u0027id-ID\u0027)} | Jual: Rp {activeProduct.selling"
+      }, {
+        "text": "Price.toLocaleString(\u0027id-ID\u0027)}\u003c/p\u003e\n        \u003c/div\u003e\n      \u003c/div\u003e\n\n      \u003cdiv className\u003d\"flex"
+      }, {
+        "text": "-1 overflow-y-auto p-4 space-y-4\"\u003e\n        {messages.map((m"
+      }, {
+        "text": ", idx) \u003d\u003e (\n          \u003cdiv key\u003d{idx} className\u003d{`flex gap-3 ${m.sender \u003d\u003d\u003d"
+      }, {
+        "text": " \u0027user\u0027 ? \u0027justify-end\u0027 : \u0027justify-start\u0027}`}\u003e\n            {m.sender \u003d\u003d\u003d \u0027assistant"
+      }, {
+        "text": "\u0027 \u0026\u0026 (\n              \u003cdiv className\u003d\"w-8 h-8 rounded-full bg-blue-60"
+      }, {
+        "text": "0 text-white flex items-center justify-center shrink-0\"\u003e\n                \u003cBot size\u003d{16}"
+      }, {
+        "text": " /\u003e\n              \u003c/div\u003e\n            )}\n            \u003cdiv className\u003d{`max-w-lg p-3.5 rounded-xl"
+      }, {
+        "text": " text-sm whitespace-pre-wrap leading-relaxed ${\n              m.sender \u003d\u003d\u003d \u0027user\u0027 ? \u0027bg"
+      }, {
+        "text": "-blue-600 text-white\u0027 : \u0027bg-slate-100 text-slate-800\u0027\n"
+      }, {
+        "text": "            }`}\u003e\n              {m.text}\n              {m.isDemo \u0026\u0026 (\n                \u003cdiv className\u003d\""
+      }, {
+        "text": "mt-2 text-[10px] text-amber-700 bg-amber-100/"
+      }, {
+        "text": "70 p-1 rounded font-medium\"\u003e\n                  Informasi kalkulasi offline/demo\n                \u003c/div\u003e\n              )}\n            \u003c/div\u003e\n"
+      }, {
+        "text": "            {m.sender \u003d\u003d\u003d \u0027user\u0027 \u0026\u0026 (\n              \u003cdiv className\u003d\"w-8 h-8 rounded"
+      }, {
+        "text": "-full bg-slate-800 text-white flex items-center justify-center shrink-0\"\u003e\n"
+      }, {
+        "text": "                \u003cUser size\u003d{16} /\u003e\n              \u003c/div\u003e\n            )}\n          \u003c/div\u003e\n        ))}\n        {loading \u0026\u0026 \u003cdiv className"
+      }, {
+        "text": "\u003d\"text-xs text-slate-400 italic\"\u003eMenganalisis data produk...\u003c/div\u003e}\n      \u003c/div\u003e"
+      }, {
+        "text": "\n\n      \u003cdiv className\u003d\"p-3 border-t border-slate-200 flex gap-2\"\u003e"
+      }, {
+        "text": "\n        \u003cinput\n          type\u003d\"text\"\n          value\u003d{inputMsg}\n          placeholder\u003d\"Tanyakan analisis harga"
+      }, {
+        "text": ", risiko stok, atau simulasi modal...\"\n          onChange\u003d{(e) \u003d\u003e setInputMsg(e.target."
+      }, {
+        "text": "value)}\n          onKeyDown\u003d{(e) \u003d\u003e e.key \u003d\u003d\u003d \u0027Enter\u0027 \u0026\u0026 sendMessage()}\n          className\u003d\""
+      }, {
+        "text": "flex-1 border rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2"
+      }, {
+        "text": " focus:ring-blue-600\"\n        /\u003e\n        \u003cbutton\n          onClick\u003d{sendMessage}\n"
+      }, {
+        "text": "          disabled\u003d{loading}\n          className\u003d\"px-4 py-2 bg-blue-600 text-"
+      }, {
+        "text": "white rounded-lg hover:bg-blue-700 transition\"\n        \u003e\n          \u003cSend size\u003d{"
+      }, {
+        "text": "16} /\u003e\n        \u003c/button\u003e\n      \u003c/div\u003e\n    \u003c/div\u003e\n  );\n}\n```\n\n###"
+      }, {
+        "text": " Halaman Dashboard Ringkasan (`client/src/pages/DashboardPage.tsx`)\n```tsx\nimport React from"
+      }, {
+        "text": " \u0027react\u0027;\nimport { ProductItem } from \u0027../types\u0027;\nimport { TrendingUp, AlertTriangle, PackageCheck, Wallet"
+      }, {
+        "text": " } from \u0027lucide-react\u0027;\n\nexport default function DashboardPage({ \n  products, \n  onSelectProduct \n"
+      }, {
+        "text": "}: { \n  products: ProductItem[]; \n  onSelectProduct: (p: ProductItem) \u003d\u003e void;\n})"
+      }, {
+        "text": " {\n  const avgScore \u003d Math.round(products.reduce((acc, p) \u003d\u003e acc + p.score,"
+      }, {
+        "text": " 0) / products.length);\n  const totalStockCapital \u003d products.reduce((acc, p) \u003d\u003e acc"
+      }, {
+        "text": " + (p.cogsPrice * p.stockQty), 0);\n\n  return (\n    \u003cdiv className\u003d\"space-y"
+      }, {
+        "text": "-6\"\u003e\n      {/* Metric Cards */}\n      \u003cdiv className\u003d\"grid grid-cols-1 sm:"
+      }, {
+        "text": "grid-cols-2 lg:grid-cols-4 gap-4\"\u003e\n        \u003cdiv className\u003d\"bg-"
+      }, {
+        "text": "white p-5 rounded-xl border border-slate-200\"\u003e\n          \u003cdiv className\u003d\"flex items-center justify"
+      }, {
+        "text": "-between text-slate-500\"\u003e\n            \u003cspan className\u003d\"text-xs font-semibold uppercase\"\u003eProdu"
+      }, {
+        "text": "k Diteliti\u003c/span\u003e\n            \u003cPackageCheck size\u003d{18} className\u003d\"text-blue-600\" /\u003e\n"
+      }, {
+        "text": "          \u003c/div\u003e\n          \u003cdiv className\u003d\"text-2xl font-bold text-slate-900 mt-"
+      }, {
+        "text": "2\"\u003e{products.length}\u003c/div\u003e\n          \u003cspan className\u003d\"text-xs text-slate-400\"\u003e"
+      }, {
+        "text": "Kandidat tersimpan\u003c/span\u003e\n        \u003c/div\u003e\n\n        \u003cdiv className\u003d\"bg-white p-5 rounded-xl border"
+      }, {
+        "text": " border-slate-200\"\u003e\n          \u003cdiv className\u003d\"flex items-center justify-between text-slate"
+      }, {
+        "text": "-500\"\u003e\n            \u003cspan className\u003d\"text-xs font-semibold uppercase\"\u003eRata-rata Skor"
+      }, {
+        "text": " AI\u003c/span\u003e\n            \u003cTrendingUp size\u003d{18} className\u003d\"text-green-600\" /\u003e\n          "
+      }, {
+        "text": "\u003c/div\u003e\n          \u003cdiv className\u003d\"text-2xl font-bold text-slate-900 mt-2"
+      }, {
+        "text": "\"\u003e{avgScore} / 100\u003c/div\u003e\n          \u003cspan className\u003d\"text-xs text-green-6"
+      }, {
+        "text": "00 font-medium\"\u003eKategori Kelayakan Sedang\u003c/span\u003e\n        \u003c/div\u003e\n\n        \u003cdiv className\u003d\"bg-white p-5 rounded"
+      }, {
+        "text": "-xl border border-slate-200\"\u003e\n          \u003cdiv className\u003d\"flex items-center justify-between"
+      }, {
+        "text": " text-slate-500\"\u003e\n            \u003cspan className\u003d\"text-xs font-semibold uppercase\"\u003eTotal Modal"
+      }, {
+        "text": " Tertahan\u003c/span\u003e\n            \u003cWallet size\u003d{18} className\u003d\"text-amber-600\" /\u003e\n          "
+      }, {
+        "text": "\u003c/div\u003e\n          \u003cdiv className\u003d\"text-2xl font-bold text-slate-900 mt-2"
+      }, {
+        "text": "\"\u003e\n            Rp {totalStockCapital.toLocaleString(\u0027id-ID\u0027)}\n          \u003c/div\u003e\n          \u003cspan className\u003d\""
+      }, {
+        "text": "text-xs text-slate-400\"\u003eBerdasarkan stok rencana\u003c/span\u003e\n        \u003c/div\u003e\n\n        \u003cdiv className\u003d\"bg-white"
+      }, {
+        "text": " p-5 rounded-xl border border-slate-200\"\u003e\n          \u003cdiv className\u003d\"flex items-"
+      }, {
+        "text": "center justify-between text-slate-500\"\u003e\n            \u003cspan className\u003d\"text-xs font-semibold"
+      }, {
+        "text": " uppercase\"\u003ePerhatian Khusus\u003c/span\u003e\n            \u003cAlertTriangle size\u003d{18} className\u003d\"text-red-6"
+      }, {
+        "text": "00\" /\u003e\n          \u003c/div\u003e\n          \u003cdiv className\u003d\"text-2xl font-bold text-slate-"
+      }, {
+        "text": "900 mt-2\"\u003e1 Produk\u003c/div\u003e\n          \u003cspan className\u003d\"text-xs text-red-6"
+      }, {
+        "text": "00\"\u003eMargin tertekan ads\u003c/span\u003e\n        \u003c/div\u003e\n      \u003c/div\u003e\n\n      {/* Tabel Produk */}\n      \u003cdiv className"
+      }, {
+        "text": "\u003d\"bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm\"\u003e\n        "
+      }, {
+        "text": "\u003cdiv className\u003d\"p-4 border-b border-slate-200 flex justify-between items-center\"\u003e\n          \u003c"
+      }, {
+        "text": "h3 className\u003d\"font-semibold text-slate-800 text-sm\"\u003eDaftar Produk Riset"
+      }, {
+        "text": "\u003c/h3\u003e\n          \u003cspan className\u003d\"text-xs text-slate-500\"\u003eKlik baris untuk membuka kalk"
+      }, {
+        "text": "ulator detail\u003c/span\u003e\n        \u003c/div\u003e\n        \u003ctable className\u003d\"w-full text-left text-sm\"\u003e\n          \u003cthead"
+      }, {
+        "text": " className\u003d\"bg-slate-50 text-slate-500 text-xs uppercase font-medium\"\u003e\n            \u003ctr\u003e\n              "
+      }, {
+        "text": "\u003cth className\u003d\"py-3 px-4\"\u003eNama Produk\u003c/th\u003e\n              \u003cth className\u003d\"py-3 px"
+      }, {
+        "text": "-4\"\u003eMarketplace\u003c/th\u003e\n              \u003cth className\u003d\"py-3 px-4\"\u003eHPP\u003c/th\u003e\n              "
+      }, {
+        "text": "\u003cth className\u003d\"py-3 px-4\"\u003eTarget Jual\u003c/th\u003e\n              \u003cth className\u003d\"py-3"
+      }, {
+        "text": " px-4\"\u003eAI Score\u003c/th\u003e\n              \u003cth className\u003d\"py-3 px-4\"\u003eStatus\u003c/th\u003e\n            \u003c/tr\u003e\n          \u003c/thead\u003e"
+      }, {
+        "text": "\n          \u003ctbody className\u003d\"divide-y divide-slate-100\"\u003e\n            {products.map(("
+      }, {
+        "text": "prod) \u003d\u003e (\n              \u003ctr \n                key\u003d{prod.id} \n                onClick\u003d{() \u003d\u003e onSelectProduct(prod)}"
+      }, {
+        "text": "\n                className\u003d\"hover:bg-slate-50 cursor-pointer transition\"\n              \u003e\n                \u003ctd className\u003d\"py-3"
+      }, {
+        "text": ".5 px-4 font-medium text-slate-900\"\u003e{prod.name}\u003c/td\u003e\n                \u003c"
+      }, {
+        "text": "td className\u003d\"py-3.5 px-4 text-slate-600\"\u003e{prod.marketplace}\u003c/td\u003e\n                \u003ctd"
+      }, {
+        "text": " className\u003d\"py-3.5 px-4 text-slate-600\"\u003eRp {prod.cogs"
+      }, {
+        "text": "Price.toLocaleString(\u0027id-ID\u0027)}\u003c/td\u003e\n                \u003ctd className\u003d\"py-3.5 px-4 text"
+      }, {
+        "text": "-slate-600\"\u003eRp {prod.sellingPrice.toLocaleString(\u0027id-ID\u0027)}\u003c/td\u003e\n                \u003ctd className\u003d\"py"
+      }, {
+        "text": "-3.5 px-4 font-semibold text-blue-600\"\u003e{prod.score}/10"
+      }, {
+        "text": "0\u003c/td\u003e\n                \u003ctd className\u003d\"py-3.5 px-4\"\u003e\n                  \u003cspan className\u003d{`px"
+      }, {
+        "text": "-2.5 py-1 rounded-full text-xs font-medium ${\n                    prod.score \u003e\u003d 75 ? \u0027"
+      }, {
+        "text": "bg-green-100 text-green-700\u0027 : \u0027bg-amber-100 text-"
+      }, {
+        "text": "amber-700\u0027\n                  }`}\u003e\n                    {prod.scoreStatus}\n                  \u003c/span\u003e\n                \u003c/td\u003e\n"
+      }, {
+        "text": "              \u003c/tr\u003e\n            ))}\n          \u003c/tbody\u003e\n        \u003c/table\u003e\n      \u003c/div\u003e\n    \u003c/div\u003e\n  );\n}\n"
+      }, {
+        "text": "```\n\n### Halaman AI Product Research (`client/src/pages/ResearchPage.tsx`)\n```tsx\nimport"
+      }, {
+        "text": " React, { useState } from \u0027react\u0027;\nimport { ProductItem } from \u0027../types\u0027;\nimport { Sparkles"
+      }, {
+        "text": ", PlusCircle } from \u0027lucide-react\u0027;\n\nexport default function ResearchPage({ onAddProduct }: { onAddProduct"
+      }, {
+        "text": ": (prod: ProductItem) \u003d\u003e void }) {\n  const [category, setCategory] \u003d useState(\u0027P"
+      }, {
+        "text": "eralatan Dapur\u0027);\n  const [marketplace, setMarketplace] \u003d useState(\u0027Shopee\u0027);\n  const"
+      }, {
+        "text": " [budget, setBudget] \u003d useState(\u00275000000\u0027);\n  const [loading, setLoading"
+      }, {
+        "text": "] \u003d useState(false);\n  const [ideas, setIdeas] \u003d useState\u003cany[]\u003e([]);\n\n  "
+      }, {
+        "text": "const handleSearch \u003d async () \u003d\u003e {\n    setLoading(true);\n    try {\n      const res \u003d await fetch(\u0027"
+      }, {
+        "text": "http://localhost:5000/api/ai/ideate\u0027, {\n        method: \u0027POST\u0027,"
+      }, {
+        "text": "\n        headers: { \u0027Content-Type\u0027: \u0027application/json\u0027 },\n        body: JSON.stringify({"
+      }, {
+        "text": " category, marketplace, budget: Number(budget) })\n      });\n      const data \u003d await res.json();"
+      }, {
+        "text": "\n      setIdeas(data.ideas || []);\n    } catch {\n      // Fallback jika backend offline\n      setIdeas(["
+      }, {
+        "text": "\n        {\n          name: \"Kotak Bumbu Putar 4-in-1 (Demo)\",\n          category: category,"
+      }, {
+        "text": "\n          reason: \"Format konten TikTok resep masakan viral sering menonjolkan kerapian meja saji.\",\n          riskNotes"
+      }, {
+        "text": ": \"Bahan akrilik rentan pecah saat ekspedisi reguler.\",\n          missingData: \""
+      }, {
+        "text": "Biaya bubble wrap ekstra tebal per pcs.\"\n        }\n      ]);\n    } finally {\n      setLoading("
+      }, {
+        "text": "false);\n    }\n  };\n\n  const saveCandidate \u003d (idea: any) \u003d\u003e {\n    const new"
+      }, {
+        "text": "Product: ProductItem \u003d {\n      id: \"prod-\" + Date.now(),\n      name: idea.name,\n      category"
+      }, {
+        "text": ": idea.category,\n      marketplace,\n      cogsPrice: 20000,\n      "
+      }, {
+        "text": "sellingPrice: 45000,\n      weightGrams: 300,\n      stock"
+      }, {
+        "text": "Qty: 50,\n      score: 72,\n      scoreStatus: \u0027Layak Diuji\u0027,\n      "
+      }, {
+        "text": "isVerified: false,\n      notes: idea.reason\n    };\n    onAddProduct(newProduct);"
+      }, {
+        "text": "\n    alert(`\"${idea.name}\" berhasil ditambahkan ke daftar riset produk Anda.`);\n  };\n\n  "
+      }, {
+        "text": "return (\n    \u003cdiv className\u003d\"max-w-4xl mx-auto space-y-6\"\u003e\n"
+      }, {
+        "text": "      \u003cdiv\u003e\n        \u003ch2 className\u003d\"text-2xl font-bold text-slate-900\"\u003eAI Product Research Engine"
+      }, {
+        "text": "\u003c/h2\u003e\n        \u003cp className\u003d\"text-sm text-slate-500\"\u003eMencari celah produk potensial dengan valid"
+      }, {
+        "text": "asi risiko stok.\u003c/p\u003e\n      \u003c/div\u003e\n\n      \u003cdiv className\u003d\"bg-white p-6 border rounded-xl shadow"
+      }, {
+        "text": "-sm grid grid-cols-1 md:grid-cols-3 gap-4\"\u003e\n        \u003cdiv\u003e\n          "
+      }, {
+        "text": "\u003clabel className\u003d\"text-xs font-semibold text-slate-600\"\u003eKategori Sasaran\u003c/label\u003e\n          "
+      }, {
+        "text": "\u003cinput\n            type\u003d\"text\"\n            value\u003d{category}\n            onChange\u003d{(e) \u003d\u003e setCategory(e.target.value"
+      }, {
+        "text": ")}\n            className\u003d\"w-full mt-1 px-3 py-2 border rounded-lg text-sm\"\n          /\u003e"
+      }, {
+        "text": "\n        \u003c/div\u003e\n        \u003cdiv\u003e\n          \u003clabel className\u003d\"text-xs font-semibold text-slate-60"
+      }, {
+        "text": "0\"\u003eMarketplace Utama\u003c/label\u003e\n          \u003cselect\n            value\u003d{marketplace}\n            onChange\u003d{(e) \u003d\u003e"
+      }, {
+        "text": " setMarketplace(e.target.value)}\n            className\u003d\"w-full mt-1 px-3 py-2 border"
+      }, {
+        "text": " rounded-lg text-sm bg-white\"\n          \u003e\n            \u003coption value\u003d\"Shopee\"\u003eShopee"
+      }, {
+        "text": " Indonesia\u003c/option\u003e\n            \u003coption value\u003d\"TikTok Shop\"\u003eTikTok Shop\u003c/option\u003e\n            \u003coption value\u003d\""
+      }, {
+        "text": "Tokopedia\"\u003eTokopedia\u003c/option\u003e\n          \u003c/select\u003e\n        \u003c/div\u003e\n        \u003cdiv\u003e\n          \u003clabel className"
+      }, {
+        "text": "\u003d\"text-xs font-semibold text-slate-600\"\u003eAlokasi Modal Awal (Rp)\u003c/label\u003e\n          \u003c"
+      }, {
+        "text": "input\n            type\u003d\"number\"\n            value\u003d{budget}\n            onChange\u003d{(e) \u003d\u003e setBudget(e"
+      }, {
+        "text": ".target.value)}\n            className\u003d\"w-full mt-1 px-3 py-2 border rounded-"
+      }, {
+        "text": "lg text-sm\"\n          /\u003e\n        \u003c/div\u003e\n        \u003cdiv className\u003d\"md:col-span-3"
+      }, {
+        "text": "\"\u003e\n          \u003cbutton\n            onClick\u003d{handleSearch}\n            disabled\u003d{loading}\n            className\u003d\"w-"
+      }, {
+        "text": "full bg-blue-600 text-white py-2.5 rounded-lg text-sm font-semibold hover"
+      }, {
+        "text": ":bg-blue-700 flex items-center justify-center gap-2 transition\"\n          \u003e\n            "
+      }, {
+        "text": "\u003cSparkles size\u003d{16} /\u003e {loading ? \"Menganalisis Parameter Pasar...\" : \"Dapatkan"
+      }, {
+        "text": " Hipotesis Produk\"}\n          \u003c/button\u003e\n        \u003c/div\u003e\n      \u003c/div\u003e\n\n      {ideas.length \u003e 0"
+      }, {
+        "text": " \u0026\u0026 (\n        \u003cdiv className\u003d\"space-y-4\"\u003e\n          \u003ch3 className\u003d\"font-semibold text-slate-"
+      }, {
+        "text": "800 text-sm\"\u003eRekomendasi Kandidat Produk:\u003c/h3\u003e\n          {ideas.map((item"
+      }, {
+        "text": ", idx) \u003d\u003e (\n            \u003cdiv key\u003d{idx} className\u003d\"bg-white border rounded-xl p-5 shadow-sm space"
+      }, {
+        "text": "-y-3\"\u003e\n              \u003cdiv className\u003d\"flex justify-between items-start\"\u003e\n                \u003cdiv\u003e\n                  \u003ch4 className"
+      }, {
+        "text": "\u003d\"font-bold text-slate-900 text-base\"\u003e{item.name}\u003c/h4\u003e\n                  \u003cspan"
+      }, {
+        "text": " className\u003d\"text-xs text-blue-600 font-medium\"\u003e{item.category}\u003c/span\u003e\n                \u003c/div\u003e\n                \u003cbutton"
+      }, {
+        "text": "\n                  onClick\u003d{() \u003d\u003e saveCandidate(item)}\n                  className\u003d\"flex items-center gap-1.5 text-xs bg"
+      }, {
+        "text": "-slate-900 text-white px-3 py-1.5 rounded-lg hover:bg-"
+      }, {
+        "text": "slate-800\"\n                \u003e\n                  \u003cPlusCircle size\u003d{14} /\u003e Simpan ke Riset\n                "
+      }, {
+        "text": "\u003c/button\u003e\n              \u003c/div\u003e\n\n              \u003cdiv className\u003d\"text-sm text-slate-600 bg-slate-5"
+      }, {
+        "text": "0 p-3 rounded-lg border border-slate-100\"\u003e\n                \u003cstrong\u003eAlasan Kelayakan:\u003c/strong\u003e {item."
+      }, {
+        "text": "reason}\n              \u003c/div\u003e\n\n              \u003cdiv className\u003d\"grid grid-cols-1 md:grid-cols-2"
+      }, {
+        "text": " gap-2 text-xs\"\u003e\n                \u003cdiv className\u003d\"text-red-700 bg-red-50 p"
+      }, {
+        "text": "-2.5 rounded border border-red-100\"\u003e\n                  \u003cstrong\u003eTantangan \u0026 Risiko:\u003c/strong\u003e {item.riskNotes"
+      }, {
+        "text": "}\n                \u003c/div\u003e\n                \u003cdiv className\u003d\"text-amber-800 bg-amber-50 p"
+      }, {
+        "text": "-2.5 rounded border border-amber-100\"\u003e\n                  \u003cstrong\u003eData Masih Diperlukan:"
+      }, {
+        "text": "\u003c/strong\u003e {item.missingData}\n                \u003c/div\u003e\n              \u003c/div\u003e\n            \u003c/div\u003e\n          ))}\n        \u003c/div\u003e\n      "
+      }, {
+        "text": ")}\n    \u003c/div\u003e\n  );\n}\n```\n\n---\n\n## 6. Environment Variables (`.env."
+      }, {
+        "text": "example`)\n\n### File `.env` Server (`server/.env.example`)\n```ini\nPORT\u003d5000\n"
+      }, {
+        "text": "CLIENT_URL\u003dhttp://localhost:5173\n\n# Dapatkan dari Google AI Studio (https://aistudio."
+      }, {
+        "text": "google.com/)\nGEMINI_API_KEY\u003dyour_gemini_api_key_here\n\n#"
+      }, {
+        "text": " Dapatkan dari Dashboard Supabase \u003e Project Settings \u003e API\nSUPABASE_URL\u003dhttps://your-project.supabase.co\nSUP"
+      }, {
+        "text": "ABASE_SERVICE_ROLE_KEY\u003dyour_supabase_service_role_key\n```\n\n### File `.env` Client (`client/."
+      }, {
+        "text": "env.example`)\n```ini\nVITE_SUPABASE_URL\u003dhttps://your-project.supabase."
+      }, {
+        "text": "co\nVITE_SUPABASE_ANON_KEY\u003dyour_supabase_anon_key\nVITE_"
+      }, {
+        "text": "API_URL\u003dhttp://localhost:5000/api\n```\n\n---\n\n## 7. Pand"
+      }, {
+        "text": "uan Instalasi \u0026 Menjalankan Aplikasi\n\n### Langkah 1: Klon \u0026 Persiapan Direktori\n```bash\ngit clone https"
+      }, {
+        "text": "://github.com/username/produklaku-ai.git\ncd produklaku-ai\n```\n\n### Langkah 2"
+      }, {
+        "text": ": Setup Server Backend\n```bash\ncd server\nnpm install\ncp .env.example .env\n# Edit .env dan isi GEM"
+      }, {
+        "text": "INI_API_KEY Anda jika ingin respon AI aktif (opsional untuk demo)\nnpm run dev\n```\n"
+      }, {
+        "text": "*Server aktif di: `http://localhost:5000`*\n\n### Langkah 3: Setup Frontend Client\nB"
+      }, {
+        "text": "uka terminal baru:\n```bash\ncd client\nnpm install\nnpm run dev\n```\n*Aplikasi frontend aktif di: "
+      }, {
+        "text": "`http://localhost:5173`*\n\nAplikasi otomatis berjalan dalam **Mode Demo** jika API Key belum diisi"
+      }, {
+        "text": ", sehingga seluruh kalkulator laba, simulasi stok, dan alur perancangan produk dapat diuji langsung tanpa"
+      }, {
+        "text": " kendala koneksi.\n\n---\n\n## 8. Verifikasi \u0026 Pengujian Logika Matematis\n\nUntuk memb"
+      }, {
+        "text": "uktikan keandalan kalkulator finansial, Anda dapat membuat file unit test sederhana di `client/src/lib/calculator"
+      }, {
+        "text": ".test.ts` atau menjalankannya langsung di console browser:\n\n```typescript\nimport { calculateUnitEconomics } from"
+      }, {
+        "text": " \u0027./calculator\u0027;\n\n// Simulasi Pengujian:\n// HPP \u003d Rp 20.000,"
+      }, {
+        "text": " Harga Jual \u003d Rp 50.000, Fee Marketplace \u003d 6.5%, \n// Ong"
+      }, {
+        "text": "kir Subsidi \u003d Rp 1.500, Packing \u003d Rp 2.000, Ads \u003d Rp 5.0"
+      }, {
+        "text": "00, Ops \u003d Rp 1.000, Retur \u003d 2%\nconst result \u003d calculateUnitEconomics({\n"
+      }, {
+        "text": "  cogsPrice: 20000,\n  sellingPrice: 50000,"
+      }, {
+        "text": "\n  marketplaceFeePercent: 6.5,\n  serviceFeeFixed: 1000,\n"
+      }, {
+        "text": "  packagingCost: 2000,\n  shippingSubsidy: 1500,\n  "
+      }, {
+        "text": "adCostPerOrder: 5000,\n  operationalPerUnit: 1000,\n"
+      }, {
+        "text": "  returnRatePercent: 2,\n  taxPercent: 0.5\n});\n\nconsole.assert(result.total"
+      }, {
+        "text": "CostPerUnit \u003e 20000, \"Total biaya harus lebih tinggi dari HPP\");\nconsole.assert("
+      }, {
+        "text": "result.netProfitPerUnit \u003d\u003d\u003d (50000 - result.totalCostPerUnit), \"Laba bersih harus"
+      }, {
+        "text": " selaras dengan selisih harga\");\nconsole.log(\"Pengujian Matematika Laba Bersih: SUKSES\","
+      }, {
+        "text": " result);\n```\n\n---\n\n## 9. Keterbatasan, Disclaimer Hukum \u0026 Roadmap\n\n### Keterbatasan Sistem MVP"
+      }, {
+        "text": " (Tahap 1)\n1. **Tidak Ada Web Scraping Ilegal:** ProdukLaku AI tidak mengambil pak"
+      }, {
+        "text": "sa data real-time dari Shopee/TikTok/Tokopedia tanpa izin resmi karena melanggar *Terms of Service*"
+      }, {
+        "text": " platform dan rentan pemblokiran IP. Seluruh angka kompetitor dimasukkan secara manual atau via unggah CSV oleh pengguna.\n"
+      }, {
+        "text": "2. **Ketergantungan Data Input:** Akurasi skor kelayakan produk 100% bergantung pada kej"
+      }, {
+        "text": "ujuran input biaya pengemasan, HPP supplier sebenarnya, dan target iklan yang diinputkan pengguna.\n3"
+      }, {
+        "text": ". **Bukan Rekomendasi Finansial Mutlak:** AI Product Score ditujukan sebagai alat saring awal"
+      }, {
+        "text": " (*decision-support filter*), bukan jaminan kesuksesan usaha.\n\n### Roadmap Pengembangan Selanjutnya\n\n```text\n+"
+      }, {
+        "text": "--------------------------------------------------------------------------+\n| TAHAP 1: MVP (Saat Ini)                                                  |\n| - Determin"
+      }, {
+        "text": "istic Unit Economics Engine (Bebas Halusinasi)                 |\n| - Algoritma AI Product Scoring 0-10"
+      }, {
+        "text": "0 Berbobot                            |\n| - Simulasi Sensitivitas Modal 3 Skenario (Pesimistis, Normal, Optim"
+      }, {
+        "text": "is)   |\n| - Asisten Chatbot Gemini 2.5 Flash dengan Konteks Produk Lokal           "
+      }, {
+        "text": "|\n+--------------------------------------------------------------------------+\n                                     |\n                                     v\n+--------------------------------------------------------------------------+\n| TAH"
+      }, {
+        "text": "AP 2: Pengembangan Lanjutan                                           |\n| - Parser Unggah File CSV Data Kompetitor \u0026 Transaksi Tok"
+      }, {
+        "text": "o                |\n| - Supplier Matrix Comparison (Evaluasi Biaya Kirim Gudang \u0026 MOQ)         |\n| - Ekspor Dok"
+      }, {
+        "text": "umen Laporan PDF Ringkasan Kelayakan Produk                  |\n| - Sinkronisasi Multi-Device menggunakan Supabase PostgreSQL"
+      }, {
+        "text": " Auth         |\n+--------------------------------------------------------------------------+\n                                     |\n                                     v\n+--------------------------------------------------------------------------"
+      }, {
+        "text": "+\n| TAHAP 3: Skalabilitas SaaS Komersial                                     |\n| - Integrasi API Mitra"
+      }, {
+        "text": " Resmi Marketplace (Shopee Open Platform)           |\n| - Sistem Billing \u0026 Langganan Midtrans / Xendit (ID"
+      }, {
+        "text": "R Gateway)             |\n| - Notifikasi Kuota Pemakaian Token Gemini                                |\n| - Audit Jejak Historis Perubahan Harga"
+      }, {
+        "text": " Bahan Baku Supplier               |\n+--------------------------------------------------------------------------+\n```"
+      }, {
+        "text": "",
+        "thoughtSignature": "EtUKCtIKAWkUfRPbP5NMRVV3si+xq33DbMwPbNyTuJ/Eqw0Rf2YJeEOCBzSYEqyWCg+LOkO4oX29cna4yVfOn0uF4CUYGObE5HTJlKjyk5/ee248+bDKHgZj30PEXhneZ7Dbiq6HS3Oqv9tbwzMPJFEw7KRd6ErVtERYL3KHdVnmo8yI3Kh3aXmpjmm8yZz6gSHgqFo6RXtiKwNoUvK6FpBZtKwsPNxtG+7CCkdiegWZJnEe6K3R0b++iz6KP4NjfzrY4GgT2UL5Io/6IIXssWNRfVg3K1WqwEDpPg4YXPKTl7MrQpi90OfeeswF+CKjGXo20Cze0mJYfgWcRr5OC5fQ3gxGtfROdokxlCN72jW8xC1WmZOeWKDpWJeFldyIwzj5ejSjiTbmoHr++XxAeAXuoiT2Q9Ye6Xorjqon32hRh5vMEFaXl67MLE+kbGqP5ZtZTx1rZwMqPznTCwJtetLjm8PhRNJjTVFGHMzq85XqyujUCLiD6eKFLS/rLmHG3YYqM6ZcBGBJLizGWCl3PXpaGQd9zHk5kUMBddIncttneTPCJgp2tgNiHeSQ0QQJc95N2grdO+JIHUiu2LGC6akAwvYa/PwYevyls+vWIHYrUOCXuGZe/fBvGNdiFbMO157TkD6jOQaDItWz5pvPnrL33Xq1/2Pg/qi2xnuS5rvgZYLTW/m5F6H4PWLrVaOlu26ZheKIkWwc1NH+/ET37qwYMFtbDjsYCz9aEDYi5qJvh6xEH1AXINxZ76Uyi8Z6vcql/drzwbNkVZyIPuRTGdTBHVY9YhcItiv/umrTX0EDeUjIKaE2Htt6ZCCYh0tGXhfGETORMmR26JKNYLFEQ2zqhRDCBJlnHrweJlLruDqhY0gdHpZpjrkdvPB4klaLQAQNl1alS1NFGcoCBVnQFjYhzCfEJndNcYJOclLDsD1HtyCxST+sQUakoxeVT5Sad0tFH998ZldlY7pIv6KAv98PP/6XI22tv74kGwDNUPCdtQTP1/ccTpRAdaqYFN6VWeH4ZrnAJfCiiMroadYcuzz6I9sP/QMKZoF5r/Qyn/ocYeobPCxHzFM23282HG6suGPVeEXafm1KnTugCTgiaf/yg9yvWs7fcCEgLf0wpojdIlszJpCxqmdtrN5WArojzjP0OHqb9dzn1oe9cRM+9OVqksRIaKsQ/wOPhGs+jgFuSPUQYsikhtTa0F6oa9snfDDcT6v3hS6TpaOSokEZSY8oqklQb5YXUhXQihhtrIz9O3pxRaVgDBohAJpxDk3+8QsPf28YNxxAYT0dIFVoTkglI5d2ohf9TsSvfIruYSJDAunlbMExmTiqyZ+4T/VoaYNCXH5rpU7LMwq8NC7yJbz2DP+6NLC8gdcjr130w/ysBeN6zT/f7ERv4XsaRDmQPVZjm8ZVtDJpb/+vhPdl2cfLJ/qIeLOIb6EP2lbQbjw7LHZyTrrMMn4Rdcgz/tFAULPzuvH0vGiCVxn5bkrR9vLBtBkaXoTLOnc0ShPZlnlrtlzTXaAkka3/9JDtT0LsvC/RuVHb/uda23AMYfvJ3Q6a1ROsvz0ato/4ysZHxE4fN68e1Bj6jy/cJsiQVrvNoFWQtdK9Cx2QcF+EKWFxzDSeUwMyjNHjiBsD1RunoxYhjKYEMxgP90Wz3w+Bp4ExWhbbgJHGji4oTZat+fUY+PrN/cUBVXt5R6KybH6WfZhAl1KawCfS59kXjHcE+Ocg//GvLHAzO9mpg0H/E/ykc9bFfT2aZ4K0+fXVGbCQBrQ0HCNMgHPgjN1Vv55boTsYJVCdxx1BqPktBa8ztQF9BOBNXQjoF+Ke"
+      }],
+      "createTime": "2026-10-25T13:05:37.821Z"
+    }],
+    "pendingInputs": [{
+      "text": "",
+      "role": "user"
+    }]
+  }
+}
